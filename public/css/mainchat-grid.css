@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Slab&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merienda&display=swap");
+/* line 1, ../../src/scss/variables.scss */
+:root {
+  --navbarHeight: 70px;
+  /*Colors*/
+  --c1: #aabbcc;
+  --c2: #557675;
+  --c3: #223344;
+  /*Timings*/
+  --quick: .5s;
+  --lazy: .95s; }
+
+/*HELPERS*/
+/* line 12, ../../src/scss/variables.scss */
+.r {
+  border: 5px red solid; }
+
+/* line 15, ../../src/scss/variables.scss */
+.x {
+  display: none; }
+
+/* @include LINE(5px)*/
+/*MIXIN's*/
+/* line 4, ../../src/scss/mainchat-grid.scss */
+.mainchat-grid {
+  display: grid;
+  width: clamp(430px, 100%, 100%);
+  height: 100%;
+  grid-template-columns: 1fr;
+  grid-template-rows: 50px 500px 50px;
+  grid-template-areas: "title" "messageArea" "sendComponent";
+  overflow: hidden;
+  background: #333;
+  border: 5px white solid; }
+  /* line 9, ../../src/scss/mainchat-grid.scss */
+  .mainchat-grid_title {
+    grid-area: title;
+    display: block;
+    position: relative;
+    top: 0px;
+    text-align: center;
+    font-family: "Roboto Slab", serif;
+    font-size: 2rem;
+    color: var(--c1);
+    background: #333;
+    border: 3px white solid; }
+  /* line 21, ../../src/scss/mainchat-grid.scss */
+  .mainchat-grid_message-area {
+    grid-area: messageArea;
+    width: 100%;
+    height: 100%;
+    border: 1px red solid; }
+  /* line 27, ../../src/scss/mainchat-grid.scss */
+  .mainchat-grid_send-component {
+    grid-area: sendComponent;
+    display: block;
+    position: relative;
+    bottom: 0px;
+    width: 100%;
+    border: 1px red solid; }

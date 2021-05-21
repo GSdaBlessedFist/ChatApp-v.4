@@ -3,9 +3,12 @@
 @import "prime-container";
 
 .mainbody{
-	display: block;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	height: 100%;
 	/*background: #333;*/
-	@include LINE(5px);
+	/*@include LINE(5px);*/
 	color: white;
+	overflow: hidden;
 }

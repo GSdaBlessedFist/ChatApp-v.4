@@ -23,24 +23,29 @@
 
 /* @include LINE(5px)*/
 /*MIXIN's*/
-/* line 4, ../../src/scss/footer.scss */
-.footer {
+/* line 4, ../../src/scss/chatarea.scss */
+.chat-area {
   display: flex;
-  align-items: center;
   justify-content: center;
-  height: var(--navbarHeight);
-  /*background: var(--c2);*/
+  align-items: center;
+  display: grid;
+  width: 99%;
+  height: 99%;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+  grid-template-areas: "mainchat sidechat1" "mainchat sidechat2";
   background: #333;
-  border: 5px white solid;
-  font-family: "Montserrat", sans-serif;
-  font-size: 2rem;
-  color: var(--c1); }
-  /* line 14, ../../src/scss/footer.scss */
-  .footer-link {
-    color: var(--c1);
-    text-decoration: none;
-    opacity: .15;
-    transition: opacity var(--quick); }
-    /* line 19, ../../src/scss/footer.scss */
-    .footer-link:hover {
-      opacity: 1; }
+  border: 2px white solid; }
+  /* line 12, ../../src/scss/chatarea.scss */
+  .chat-area_mainchat-window {
+    grid-area: mainchat; }
+  /* line 15, ../../src/scss/chatarea.scss */
+  .chat-area_sidechat1-window {
+    grid-area: sidechat1;
+    background: #333;
+    border: 2px white solid; }
+  /* line 19, ../../src/scss/chatarea.scss */
+  .chat-area_sidechat2-window {
+    grid-area: sidechat2;
+    background: #333;
+    border: 2px white solid; }

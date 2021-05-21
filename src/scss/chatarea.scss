@@ -1,0 +1,23 @@
+@import "variables";
+@import "font";
+
+.chat-area{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	@include grid(99%,99%,"50% 50%","50% 50%");
+	grid-template-areas: "mainchat sidechat1"
+						 "mainchat sidechat2";
+	@include LINE(2px);
+	&_mainchat-window{
+		grid-area : mainchat;
+	}
+	&_sidechat1-window{
+		grid-area : sidechat1;
+		@include LINE(2px);
+	}
+	&_sidechat2-window{
+		grid-area : sidechat2;
+		@include LINE(2px);
+	}
+}

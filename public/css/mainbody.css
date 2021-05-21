@@ -51,9 +51,11 @@
 
 /* line 5, ../../src/scss/mainbody.scss */
 .mainbody {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100%;
   /*background: #333;*/
-  background: #333;
-  border: 5px white solid;
-  color: white; }
+  /*@include LINE(5px);*/
+  color: white;
+  overflow: hidden; }

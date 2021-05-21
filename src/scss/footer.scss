@@ -13,7 +13,7 @@
 	color: var(--c1);
 	&-link{
 		color: var(--c1);
-		/*text-decoration:none;*/
+		text-decoration:none;
 		opacity: .15;
 		transition: opacity var(--quick);
 		&:hover{
