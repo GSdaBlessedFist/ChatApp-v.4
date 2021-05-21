@@ -1,0 +1,26 @@
+@import "variables";
+
+// SCROLLBAR
+/* width */
+::-webkit-scrollbar {
+  margin-left: 5px;
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 15px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 15px;
+  box-shadow: inset 2px 0px 2px $color1;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: darken($color1, 25%);
+}

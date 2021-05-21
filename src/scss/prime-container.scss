@@ -1,0 +1,24 @@
+@import "variables";
+@import "font";
+
+.prime-container{
+	background: var(--c3);
+	@include grid(100%,100vh,"1fr","70px auto 70px");
+	grid-template-areas: "header"
+						 "mainbody"
+						 "footer";
+	overflow: hidden;
+	&_header{
+		grid-area: header;
+		width: 100%;
+	}/*-->header.scss*/
+	&_mainbody{
+		grid-area: mainbody;
+		width: 100%;
+	}/*-->mainbody.scss*/
+	&_footer{
+		grid-area: footer;
+		width: 100%;
+	}/*-->footer.scss*/
+
+}

@@ -1,0 +1,42 @@
+:root{
+	--navbarHeight: 70px; //also footer height
+	/*Colors*/
+	--c1: #aabbcc;
+	--c2: #557675;
+	--c3: #223344;
+  /*Timings*/
+  --quick: .5s;
+  --lazy: .95s;
+}
+/*HELPERS*/
+.r {
+   border: 5px red solid;
+}
+.x {
+   display: none;
+}
+/* @include LINE(5px)*/
+@mixin LINE($weight){
+  background: #333;
+  border: $weight white solid;
+}
+
+/*MIXIN's*/
+@mixin grid($w, $h, $colQUOTES, $rQUOTES) {
+  display: grid;
+  width: $w;
+  height: $h;
+  grid-template-columns: unquote($colQUOTES);
+  grid-template-rows: unquote($rQUOTES);
+}
+
+@mixin lrcenter {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+@mixin buttonHoverShadow{
+    box-shadow: 5px 8px 15px -1px rgba(0,0,0,0.75); 
+}
+

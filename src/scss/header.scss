@@ -1,0 +1,27 @@
+@import "variables";
+@import "font";
+
+.header{
+	display: flex;
+	align-items: center;
+	height: var(--navbarHeight);
+	/*background: var(--c2);*/
+	overflow: hidden;
+	@include LINE(5px);
+	&-title{
+		padding: 0px 20px ;
+		background: transparent;
+		@include LINE(3px);
+		&_a{
+		@include siteFont;
+			font-size: 4rem;
+			color: var(--c1);
+			text-decoration:none;
+			opacity: .15;
+			transition: opacity var(--quick);
+			&:hover{
+				opacity: 1;
+			}
+		}
+	}
+}

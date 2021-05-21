@@ -1,0 +1,11 @@
+@import "variables";
+@import "font";
+@import "prime-container";
+
+.mainbody{
+	display: block;
+	height: 100%;
+	/*background: #333;*/
+	@include LINE(5px);
+	color: white;
+}

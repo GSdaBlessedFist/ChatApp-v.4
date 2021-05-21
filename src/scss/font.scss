@@ -1,0 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Slab&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merienda&display=swap");
+
+@mixin siteFont {
+	font-family: "Montserrat", sans-serif;
+}
+@mixin minorFont {
+	font-family: "Roboto Slab", serif;
+}
+@mixin accentFont {
+	font-family: "Merienda", cursive;
+}

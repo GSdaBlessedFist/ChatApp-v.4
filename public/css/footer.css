@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Slab&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merienda&display=swap");
+/* line 1, ../../src/scss/variables.scss */
+:root {
+  --navbarHeight: 70px;
+  /*Colors*/
+  --c1: #aabbcc;
+  --c2: #557675;
+  --c3: #223344;
+  /*Timings*/
+  --quick: .5s;
+  --lazy: .95s; }
+
+/*HELPERS*/
+/* line 12, ../../src/scss/variables.scss */
+.r {
+  border: 5px red solid; }
+
+/* line 15, ../../src/scss/variables.scss */
+.x {
+  display: none; }
+
+/* @include LINE(5px)*/
+/*MIXIN's*/
+/* line 4, ../../src/scss/footer.scss */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--navbarHeight);
+  /*background: var(--c2);*/
+  background: #333;
+  border: 5px white solid;
+  font-family: "Montserrat", sans-serif;
+  font-size: 2rem;
+  color: var(--c1); }
+  /* line 14, ../../src/scss/footer.scss */
+  .footer-link {
+    color: var(--c1);
+    /*text-decoration:none;*/
+    opacity: .15;
+    transition: opacity var(--quick); }
+    /* line 19, ../../src/scss/footer.scss */
+    .footer-link:hover {
+      opacity: 1; }
