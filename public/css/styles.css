@@ -25,7 +25,8 @@
 /*MIXIN's*/
 /* line 4, ../../src/scss/prime-container.scss */
 .prime-container {
-  background: var(--c3);
+  /*background: var(--c3);*/
+  background: green;
   display: grid;
   width: 100%;
   height: 100vh;
@@ -36,15 +37,15 @@
   /*-->header.scss*/
   /*-->mainbody.scss*/
   /*-->footer.scss*/ }
-  /* line 11, ../../src/scss/prime-container.scss */
+  /* line 13, ../../src/scss/prime-container.scss */
   .prime-container_header {
     grid-area: header;
     width: 100%; }
-  /* line 15, ../../src/scss/prime-container.scss */
+  /* line 17, ../../src/scss/prime-container.scss */
   .prime-container_mainbody {
     grid-area: mainbody;
     width: 100%; }
-  /* line 19, ../../src/scss/prime-container.scss */
+  /* line 21, ../../src/scss/prime-container.scss */
   .prime-container_footer {
     grid-area: footer;
     width: 100%; }
@@ -57,17 +58,16 @@
   /*background: var(--c2);*/
   overflow: hidden;
   background: #333;
-  border: 5px white solid; }
+  border: 1px white solid; }
   /* line 11, ../../src/scss/header.scss */
   .header-title {
     padding: 0px 20px;
     background: transparent;
-    background: #333;
-    border: 3px white solid; }
+    /*@include LINE(3px);*/ }
     /* line 15, ../../src/scss/header.scss */
     .header-title_a {
       font-family: "Montserrat", sans-serif;
-      font-size: 4rem;
+      font-size: clamp(2.75rem, 3.5rem, 4rem);
       color: var(--c1);
       text-decoration: none;
       opacity: .15;
@@ -79,9 +79,12 @@
 /* line 5, ../../src/scss/mainbody.scss */
 .mainbody {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  /*justify-content: center;*/
+  justify-content: space-evenly;
   align-items: center;
-  height: 100%;
+  flex: 1;
+  /*height: 100%;*/
   /*background: #333;*/
   /*@include LINE(5px);*/
   color: white;
@@ -89,68 +92,113 @@
 
 /* line 4, ../../src/scss/chatarea.scss */
 .chat-area {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 2px;
+  margin: 2px 0px;
   display: grid;
-  width: 99%;
-  height: 99%;
+  width: 100%;
+  height: 82vh;
   grid-template-columns: 50% 50%;
   grid-template-rows: 50% 50%;
   grid-template-areas: "mainchat sidechat1" "mainchat sidechat2";
-  background: #333;
-  border: 2px white solid; }
-  /* line 12, ../../src/scss/chatarea.scss */
+  /*@include LINE(5px,orange);*/
+  background: purple;
+  filter: saturate(5); }
+  /* line 13, ../../src/scss/chatarea.scss */
   .chat-area_mainchat-window {
+    /*-->mainchat-grid.scss*/
     grid-area: mainchat; }
-  /* line 15, ../../src/scss/chatarea.scss */
+  /* line 17, ../../src/scss/chatarea.scss */
   .chat-area_sidechat1-window {
-    grid-area: sidechat1;
-    background: #333;
-    border: 2px white solid; }
-  /* line 19, ../../src/scss/chatarea.scss */
+    grid-area: sidechat1; }
+  /* line 20, ../../src/scss/chatarea.scss */
   .chat-area_sidechat2-window {
-    grid-area: sidechat2;
-    background: #333;
-    border: 2px white solid; }
+    grid-area: sidechat2; }
 
 /* line 4, ../../src/scss/mainchat-grid.scss */
 .mainchat-grid {
+  /*@include grid(100%,100%,"1fr","50px calc(77vh - 100px) 50px");*/
   display: grid;
-  width: clamp(430px, 100%, 100%);
+  width: 100%;
   height: 100%;
   grid-template-columns: 1fr;
-  grid-template-rows: 50px 500px 50px;
+  grid-template-rows: auto 71vh 50px;
   grid-template-areas: "title" "messageArea" "sendComponent";
   overflow: hidden;
-  background: #333;
-  border: 5px white solid; }
-  /* line 9, ../../src/scss/mainchat-grid.scss */
+  /*@include LINE(0px,transparent);*/ }
+  /* line 11, ../../src/scss/mainchat-grid.scss */
   .mainchat-grid_title {
     grid-area: title;
     display: block;
+    /*height: 50px;*/
     position: relative;
     top: 0px;
     text-align: center;
     font-family: "Roboto Slab", serif;
-    font-size: 2rem;
-    color: var(--c1);
+    font-size: clamp(1.5rem, 1.75rem, 2rem);
+    color: white;
     background: #333;
-    border: 3px white solid; }
-  /* line 21, ../../src/scss/mainchat-grid.scss */
+    border: 2px white solid; }
+  /* line 23, ../../src/scss/mainchat-grid.scss */
   .mainchat-grid_message-area {
     grid-area: messageArea;
+    overflow-y: auto;
     width: 100%;
-    height: 100%;
-    border: 1px red solid; }
-  /* line 27, ../../src/scss/mainchat-grid.scss */
+    background: #333;
+    border: 2px white solid; }
+  /* line 29, ../../src/scss/mainchat-grid.scss */
   .mainchat-grid_send-component {
     grid-area: sendComponent;
-    display: block;
+    display: inline;
     position: relative;
+    border-top: 2px orange solid;
     bottom: 0px;
     width: 100%;
-    border: 1px red solid; }
+    /*height: 50px;*/
+    background: #333;
+    border: 2px white solid; }
+
+/* line 5, ../../src/scss/sidechat-grid.scss */
+.sidechat1-grid .sidechat-grid, .sidechat2-grid .sidechat-grid {
+  /*@include grid(100%,100%,"1fr","50px calc(77vh - 100px) 50px");*/
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 71vh 50px;
+  grid-template-areas: "title" "messageArea" "sendComponent";
+  overflow: hidden;
+  /*@include LINE(0px,transparent);*/ }
+  /* line 12, ../../src/scss/sidechat-grid.scss */
+  .sidechat1-grid .sidechat-grid_title, .sidechat2-grid .sidechat-grid_title {
+    grid-area: title;
+    display: block;
+    /*height: 50px;*/
+    position: relative;
+    top: 0px;
+    text-align: center;
+    font-family: "Roboto Slab", serif;
+    font-size: clamp(1.5rem, 1.75rem, 2rem);
+    color: white;
+    background: #333;
+    border: 2px white solid; }
+  /* line 24, ../../src/scss/sidechat-grid.scss */
+  .sidechat1-grid .sidechat-grid_message-area, .sidechat2-grid .sidechat-grid_message-area {
+    grid-area: messageArea;
+    overflow-y: auto;
+    width: 100%;
+    background: #333;
+    border: 2px white solid; }
+  /* line 30, ../../src/scss/sidechat-grid.scss */
+  .sidechat1-grid .sidechat-grid_send-component, .sidechat2-grid .sidechat-grid_send-component {
+    grid-area: sendComponent;
+    display: inline;
+    position: relative;
+    border-top: 2px orange solid;
+    bottom: 0px;
+    width: 100%;
+    /*height: 50px;*/
+    background: #333;
+    border: 2px white solid; }
 
 /*@import "signin-modal";
 @import "mainchat-message-area";
@@ -164,7 +212,7 @@
   height: var(--navbarHeight);
   /*background: var(--c2);*/
   background: #333;
-  border: 5px white solid;
+  border: 1px white solid;
   font-family: "Montserrat", sans-serif;
   font-size: 2rem;
   color: var(--c1); }
@@ -178,10 +226,14 @@
     .footer-link:hover {
       opacity: 1; }
 
-/* line 14, ../../src/scss/styles.scss */
+/* line 15, ../../src/scss/styles.scss */
 * {
   margin: 0;
   margin: 0px;
   box-sizing: border-box;
   color: white;
   /*background: #333;*/ }
+
+/* line 22, ../../src/scss/styles.scss */
+html {
+  height: 100%; }

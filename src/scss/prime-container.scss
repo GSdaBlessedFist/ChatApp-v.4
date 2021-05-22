@@ -2,8 +2,10 @@
 @import "font";
 
 .prime-container{
-	background: var(--c3);
+	/*background: var(--c3);*/
+	background: green;
 	@include grid(100%,100vh,"1fr","70px auto 70px");
+	
 	grid-template-areas: "header"
 						 "mainbody"
 						 "footer";

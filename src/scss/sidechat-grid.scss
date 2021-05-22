@@ -1,7 +1,8 @@
 @import "variables";
 @import "font";
 
-.mainchat-grid{
+%sidechat-general{
+	.sidechat-grid{
 	/*@include grid(100%,100%,"1fr","50px calc(77vh - 100px) 50px");*/
 	@include grid(100%,100%,"1fr","auto 71vh 50px");
 	grid-template-areas: "title"
@@ -39,4 +40,11 @@
 	
 	/*@include LINE(0px,transparent);*/
 }
+}
+
+.sidechat1-grid,.sidechat2-grid{
+	@extend %sidechat-general;
+}
+
+
 

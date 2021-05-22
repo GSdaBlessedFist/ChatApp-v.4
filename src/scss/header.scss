@@ -7,14 +7,14 @@
 	height: var(--navbarHeight);
 	/*background: var(--c2);*/
 	overflow: hidden;
-	@include LINE(5px);
+	@include LINE(1px);
 	&-title{
 		padding: 0px 20px ;
 		background: transparent;
-		@include LINE(3px);
+		/*@include LINE(3px);*/
 		&_a{
 		@include siteFont;
-			font-size: 4rem;
+			font-size: clamp(2.75rem,3.5rem,4rem);
 			color: var(--c1);
 			text-decoration:none;
 			opacity: .15;

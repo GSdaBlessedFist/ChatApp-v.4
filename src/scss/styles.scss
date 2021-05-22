@@ -5,6 +5,7 @@
 @import "mainbody";
 @import "chatarea";
 @import "mainchat-grid";
+@import "sidechat-grid";
 /*@import "signin-modal";
 @import "mainchat-message-area";
 @import "send-component";
@@ -18,6 +19,7 @@
    color: white;
    /*background: #333;*/
 }
+html{height: 100%;}
 
 
 
