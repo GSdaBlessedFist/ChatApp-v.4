@@ -14,10 +14,13 @@
 		/*-->mainchat-grid.scss*/
 		grid-area : mainchat;
 	}
+	/*-->sidechat-grid.scss*/
 	&_sidechat1-window{
+		
 		grid-area : sidechat1;
 	}
 	&_sidechat2-window{
+		/*-->sidechat-grid.scss*/
 		grid-area : sidechat2;
 	}
 }

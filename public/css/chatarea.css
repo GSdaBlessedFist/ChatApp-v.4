@@ -35,14 +35,16 @@
   grid-template-areas: "mainchat sidechat1" "mainchat sidechat2";
   /*@include LINE(5px,orange);*/
   background: purple;
-  filter: saturate(5); }
+  filter: saturate(5);
+  /*-->sidechat-grid.scss*/ }
   /* line 13, ../../src/scss/chatarea.scss */
   .chat-area_mainchat-window {
     /*-->mainchat-grid.scss*/
     grid-area: mainchat; }
-  /* line 17, ../../src/scss/chatarea.scss */
+  /* line 18, ../../src/scss/chatarea.scss */
   .chat-area_sidechat1-window {
     grid-area: sidechat1; }
-  /* line 20, ../../src/scss/chatarea.scss */
+  /* line 22, ../../src/scss/chatarea.scss */
   .chat-area_sidechat2-window {
+    /*-->sidechat-grid.scss*/
     grid-area: sidechat2; }

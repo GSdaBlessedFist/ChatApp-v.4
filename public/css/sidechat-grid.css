@@ -23,8 +23,12 @@
 
 /* @include LINE(5px)*/
 /*MIXIN's*/
-/* line 5, ../../src/scss/sidechat-grid.scss */
-.sidechat1-grid .sidechat-grid, .sidechat2-grid .sidechat-grid {
+/* line 7, ../../src/scss/sidechat-grid.scss */
+.sidechat2 {
+  background: white; }
+
+/* line 13, ../../src/scss/sidechat-grid.scss */
+.sidechat1 .sidechat-grid, .sidechat2 .sidechat-grid {
   /*@include grid(100%,100%,"1fr","50px calc(77vh - 100px) 50px");*/
   display: grid;
   width: 100%;
@@ -34,8 +38,8 @@
   grid-template-areas: "title" "messageArea" "sendComponent";
   overflow: hidden;
   /*@include LINE(0px,transparent);*/ }
-  /* line 12, ../../src/scss/sidechat-grid.scss */
-  .sidechat1-grid .sidechat-grid_title, .sidechat2-grid .sidechat-grid_title {
+  /* line 20, ../../src/scss/sidechat-grid.scss */
+  .sidechat1 .sidechat-grid_title, .sidechat2 .sidechat-grid_title {
     grid-area: title;
     display: block;
     /*height: 50px;*/
@@ -47,15 +51,15 @@
     color: white;
     background: #333;
     border: 2px white solid; }
-  /* line 24, ../../src/scss/sidechat-grid.scss */
-  .sidechat1-grid .sidechat-grid_message-area, .sidechat2-grid .sidechat-grid_message-area {
+  /* line 32, ../../src/scss/sidechat-grid.scss */
+  .sidechat1 .sidechat-grid_message-area, .sidechat2 .sidechat-grid_message-area {
     grid-area: messageArea;
     overflow-y: auto;
     width: 100%;
     background: #333;
     border: 2px white solid; }
-  /* line 30, ../../src/scss/sidechat-grid.scss */
-  .sidechat1-grid .sidechat-grid_send-component, .sidechat2-grid .sidechat-grid_send-component {
+  /* line 38, ../../src/scss/sidechat-grid.scss */
+  .sidechat1 .sidechat-grid_send-component, .sidechat2 .sidechat-grid_send-component {
     grid-area: sendComponent;
     display: inline;
     position: relative;
