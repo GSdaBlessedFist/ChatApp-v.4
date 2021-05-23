@@ -31,13 +31,35 @@
 	}
 	&_send-component{
 		grid-area: sendComponent;
-		display:inline;
+		display:flex;
+		justify-content: space-between;
+		align-items: center;
 		position: relative;
 		border-top: 2px orange solid;
 		bottom: 0px;
 		width: 100%;
 		/*height: 50px;*/
 		@include LINE(2px);
+		/*ADD THESE TO SIDECHAT TOO*/
+		&--send-button{
+			@include flexCenter;
+			width: 15%;
+			height: 75%;
+			border: 1px white solid;
+		}
+		&--input{
+			width: 60%;
+			height: 75%;
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+		&--features{
+			@include flexCenter;
+			margin-right: 10px;
+			width: 20%;
+			height: 75%;
+			border: 1px white solid;
+		}
 	}
 	
 	/*@include LINE(0px,transparent);*/
