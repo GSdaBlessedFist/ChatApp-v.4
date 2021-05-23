@@ -34,7 +34,7 @@
   grid-template-rows: 50% 50%;
   grid-template-areas: "mainchat sidechat1" "mainchat sidechat2";
   /*@include LINE(5px,orange);*/
-  background: purple;
+  background: #333;
   filter: saturate(5);
   /*-->sidechat-grid.scss*/ }
   /* line 13, ../../src/scss/chatarea.scss */

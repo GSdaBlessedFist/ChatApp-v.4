@@ -8,7 +8,7 @@
 	grid-template-areas: "mainchat sidechat1"
 						 "mainchat sidechat2";
 	/*@include LINE(5px,orange);*/
-	background: purple;
+	background: #333;
 	filter: saturate(5);
 	&_mainchat-window{
 		/*-->mainchat-grid.scss*/

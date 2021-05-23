@@ -3,14 +3,17 @@
 
 .mainchat-grid{
 	/*@include grid(100%,100%,"1fr","50px calc(77vh - 100px) 50px");*/
-	@include grid(100%,100%,"1fr","auto 71vh 50px");
+	/*@include grid(100%,100%,"1fr","auto 70vh 50px");*/
+	@include grid(100%,100%,"1fr","8% 84% 8%");
 	grid-template-areas: "title"
 						 "messageArea"
 						 "sendComponent";
 	overflow: hidden;
 	&_title{
 		grid-area: title;
-		display:block;
+		display:flex;
+		justify-content: center;
+		align-items: center;
 		/*height: 50px;*/
 		position: relative;
 		top: 0px;
