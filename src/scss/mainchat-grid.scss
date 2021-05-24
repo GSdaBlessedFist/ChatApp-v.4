@@ -42,6 +42,7 @@
 		@include LINE(2px);
 		/*ADD THESE TO SIDECHAT TOO*/
 		&--send-button{
+			margin-left: 10px;
 			@include flexCenter;
 			width: 15%;
 			height: 75%;
@@ -52,6 +53,9 @@
 			height: 75%;
 			padding-left: 10px;
 			padding-right: 10px;
+			color: #333;
+			font-size: 1.5rem;
+			@include accentFont;
 		}
 		&--features{
 			@include flexCenter;
