@@ -13,6 +13,7 @@
 	&_header{
 		grid-area: header;
 		width: 100%;
+		@include LINE(3px);
 	}/*-->header.scss*/
 	&_mainbody{
 		grid-area: mainbody;
@@ -20,6 +21,7 @@
 	}/*-->mainbody.scss*/
 	&_footer{
 		grid-area: footer;
+		@include LINE(3px);
 		width: 100%;
 	}/*-->footer.scss*/
 

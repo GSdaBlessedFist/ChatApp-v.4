@@ -11,10 +11,8 @@
 	overflow: hidden;
 	&_title{
 		grid-area: title;
-		display:flex;
-		justify-content: center;
-		align-items: center;
-		/*height: 50px;*/
+		@include grid(100%,100%,"4vw auto 4vw","1fr");
+		grid-template-areas:"expand title close";
 		position: relative;
 		top: 0px;
 		text-align: center;
@@ -22,6 +20,26 @@
 		font-size: clamp(1.5rem,1.75rem,2rem);
 		color: white;
 		@include LINE(2px);
+		@at-root{
+			.mainchat-title{
+				&_expand-button{
+					grid-area: expand;
+					@include flexCenter;
+					@include LINE(1px);
+					
+				}
+				&_text{
+					grid-area: title;
+					@include flexCenter;
+					@include LINE(1px);
+				}
+				&_close-button{
+					grid-area: close;
+					@include flexCenter;
+					@include LINE(1px);
+				}
+			}
+		}
 	}
 	&_message-area{
 		grid-area: messageArea;
@@ -51,8 +69,8 @@
 		&--input{
 			width: 60%;
 			height: 75%;
-			margin-left: 5px;
-			margin-right: 5px;
+			margin-left: 2px;
+			margin-right: 2px;
 			padding-left: 10px;
 			padding-right: 10px;
 			color: #333;

@@ -40,12 +40,16 @@
   /* line 13, ../../src/scss/prime-container.scss */
   .prime-container_header {
     grid-area: header;
-    width: 100%; }
-  /* line 17, ../../src/scss/prime-container.scss */
+    width: 100%;
+    background: #333;
+    border: 3px white solid; }
+  /* line 18, ../../src/scss/prime-container.scss */
   .prime-container_mainbody {
     grid-area: mainbody;
     width: 100%; }
-  /* line 21, ../../src/scss/prime-container.scss */
+  /* line 22, ../../src/scss/prime-container.scss */
   .prime-container_footer {
     grid-area: footer;
+    background: #333;
+    border: 3px white solid;
     width: 100%; }

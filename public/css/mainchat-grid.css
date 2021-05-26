@@ -38,10 +38,12 @@
   /* line 12, ../../src/scss/mainchat-grid.scss */
   .mainchat-grid_title {
     grid-area: title;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /*height: 50px;*/
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 4vw auto 4vw;
+    grid-template-rows: 1fr;
+    grid-template-areas: "expand title close";
     position: relative;
     top: 0px;
     text-align: center;
@@ -50,14 +52,38 @@
     color: white;
     background: #333;
     border: 2px white solid; }
-  /* line 26, ../../src/scss/mainchat-grid.scss */
+    /* line 25, ../../src/scss/mainchat-grid.scss */
+    .mainchat-title_expand-button {
+      grid-area: expand;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #333;
+      border: 1px white solid; }
+    /* line 31, ../../src/scss/mainchat-grid.scss */
+    .mainchat-title_text {
+      grid-area: title;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #333;
+      border: 1px white solid; }
+    /* line 36, ../../src/scss/mainchat-grid.scss */
+    .mainchat-title_close-button {
+      grid-area: close;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #333;
+      border: 1px white solid; }
+  /* line 44, ../../src/scss/mainchat-grid.scss */
   .mainchat-grid_message-area {
     grid-area: messageArea;
     overflow-y: auto;
     width: 100%;
     background: #333;
     border: 2px white solid; }
-  /* line 32, ../../src/scss/mainchat-grid.scss */
+  /* line 50, ../../src/scss/mainchat-grid.scss */
   .mainchat-grid_send-component {
     grid-area: sendComponent;
     display: flex;
@@ -71,7 +97,7 @@
     background: #333;
     border: 2px white solid;
     /*ADD THESE TO SIDECHAT TOO*/ }
-    /* line 44, ../../src/scss/mainchat-grid.scss */
+    /* line 62, ../../src/scss/mainchat-grid.scss */
     .mainchat-grid_send-component--send-button {
       margin-left: 10px;
       display: flex;
@@ -80,18 +106,18 @@
       width: 15%;
       height: 75%;
       border: 1px white solid; }
-    /* line 51, ../../src/scss/mainchat-grid.scss */
+    /* line 69, ../../src/scss/mainchat-grid.scss */
     .mainchat-grid_send-component--input {
       width: 60%;
       height: 75%;
-      margin-left: 5px;
-      margin-right: 5px;
+      margin-left: 2px;
+      margin-right: 2px;
       padding-left: 10px;
       padding-right: 10px;
       color: #333;
       font-size: 3vh;
       font-family: "Merienda", cursive; }
-    /* line 62, ../../src/scss/mainchat-grid.scss */
+    /* line 80, ../../src/scss/mainchat-grid.scss */
     .mainchat-grid_send-component--features {
       display: flex;
       flex-direction: row;
@@ -101,7 +127,7 @@
       width: 20%;
       height: 75%;
       border: 1px white solid; }
-      /* line 72, ../../src/scss/mainchat-grid.scss */
+      /* line 90, ../../src/scss/mainchat-grid.scss */
       .mainchat-grid_send-component--features_emojis {
         display: flex;
         justify-content: center;
@@ -110,7 +136,7 @@
         padding: 2px 0px;
         background: #333;
         border: 0.5px white solid; }
-      /* line 80, ../../src/scss/mainchat-grid.scss */
+      /* line 98, ../../src/scss/mainchat-grid.scss */
       .mainchat-grid_send-component--features_gifs {
         display: flex;
         justify-content: center;
@@ -119,7 +145,7 @@
         padding: 2px 0px;
         background: #333;
         border: 0.5px white solid; }
-      /* line 88, ../../src/scss/mainchat-grid.scss */
+      /* line 106, ../../src/scss/mainchat-grid.scss */
       .mainchat-grid_send-component--features_images {
         display: flex;
         justify-content: center;
@@ -128,7 +154,7 @@
         padding: 2px 0px;
         background: #333;
         border: 0.5px white solid; }
-      /* line 96, ../../src/scss/mainchat-grid.scss */
+      /* line 114, ../../src/scss/mainchat-grid.scss */
       .mainchat-grid_send-component--features_darkmode {
         display: flex;
         justify-content: center;
