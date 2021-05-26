@@ -90,7 +90,7 @@
       padding-left: 10px;
       padding-right: 10px;
       color: #333;
-      font-size: 1.5rem;
+      font-size: 2vh;
       font-family: "Merienda", cursive; }
     /* line 68, ../../src/scss/sidechat-grid.scss */
     .sidechat1 .sidechat-grid_send-component--features, .sidechat2 .sidechat-grid_send-component--features {
