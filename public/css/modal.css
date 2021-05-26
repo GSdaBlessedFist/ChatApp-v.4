@@ -24,6 +24,10 @@
 /* @include LINE(5px)*/
 /*MIXIN's*/
 /* line 4, ../../src/scss/modal.scss */
+.modal {
+  opacity: 1; }
+
+/* line 7, ../../src/scss/modal.scss */
 .modal-screen {
   display: block;
   position: absolute;
@@ -35,7 +39,7 @@
   border: 2px white solid;
   opacity: .75; }
 
-/* line 14, ../../src/scss/modal.scss */
+/* line 17, ../../src/scss/modal.scss */
 .modal-message-box {
   display: block;
   position: absolute;

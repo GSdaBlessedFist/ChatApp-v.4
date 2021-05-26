@@ -84,17 +84,56 @@
     .mainchat-grid_send-component--input {
       width: 60%;
       height: 75%;
+      margin-left: 5px;
+      margin-right: 5px;
       padding-left: 10px;
       padding-right: 10px;
       color: #333;
       font-size: 3vh;
       font-family: "Merienda", cursive; }
-    /* line 60, ../../src/scss/mainchat-grid.scss */
+    /* line 62, ../../src/scss/mainchat-grid.scss */
     .mainchat-grid_send-component--features {
       display: flex;
-      justify-content: center;
+      flex-direction: row;
+      justify-content: space-evenly;
       align-items: center;
       margin-right: 10px;
       width: 20%;
       height: 75%;
       border: 1px white solid; }
+      /* line 72, ../../src/scss/mainchat-grid.scss */
+      .mainchat-grid_send-component--features_emojis {
+        display: flex;
+        justify-content: center;
+        width: 25%;
+        height: 100%;
+        padding: 2px 0px;
+        background: #333;
+        border: 0.5px white solid; }
+      /* line 80, ../../src/scss/mainchat-grid.scss */
+      .mainchat-grid_send-component--features_gifs {
+        display: flex;
+        justify-content: center;
+        width: 25%;
+        height: 100%;
+        padding: 2px 0px;
+        background: #333;
+        border: 0.5px white solid; }
+      /* line 88, ../../src/scss/mainchat-grid.scss */
+      .mainchat-grid_send-component--features_images {
+        display: flex;
+        justify-content: center;
+        width: 25%;
+        height: 100%;
+        padding: 2px 0px;
+        background: #333;
+        border: 0.5px white solid; }
+      /* line 96, ../../src/scss/mainchat-grid.scss */
+      .mainchat-grid_send-component--features_darkmode {
+        display: flex;
+        justify-content: center;
+        width: 25%;
+        height: 100%;
+        padding: 2px 0px;
+        background: #333;
+        border: 0.5px white solid; }

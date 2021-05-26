@@ -59,6 +59,8 @@
 		&--input{
 			width: 60%;
 			height: 75%;
+			margin-left: 5px;
+			margin-right: 5px;
 			padding-left: 10px;
 			padding-right: 10px;
 			color: #333;
@@ -66,11 +68,42 @@
 			@include accentFont;
 		}
 		&--features{
-			@include flexCenter;
+			display: flex;
+			flex-direction: row;
+			justify-content:space-evenly;
+			align-items: center;
 			margin-right: 10px;
 			width: 20%;
 			height: 75%;
 			border: 1px white solid;
+			
+			&_emojis{
+				display: flex;
+				justify-content: center;
+				flex: 1;
+				width: auto;
+				height: 100%;
+				padding: 2px 0px;
+				@include LINE(.5px);
+			}
+			&_gifs{
+				display: flex;
+				justify-content: center;
+				flex: 1;
+				width: auto;
+				height: 100%;
+				padding: 2px 0px;
+				@include LINE(.5px);
+			}
+			&_images{
+				display: flex;
+				justify-content: center;
+				flex: 1;
+				width: auto;
+				height: 100%;
+				padding: 2px 0px;
+				@include LINE(.5px);
+			}
 		}
 	}
 	

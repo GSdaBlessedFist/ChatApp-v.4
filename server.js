@@ -6,7 +6,7 @@ const path = require('path');
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
-const port = process.env.PORT || 3100;
+const port = process.env.PORT || 3400;
 const nameofApp = "BlahBlahBlog";
 
 app.use(express.static('public'));

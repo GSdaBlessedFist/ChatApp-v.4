@@ -8,7 +8,7 @@
 .chat-area{
 	padding: 2px;
 	margin: 2px 0px;
-	@include grid(100%,82vh,"50% 50%","50% 50%");
+	@include grid(100%,82vh,"75% 25%","100% 0%");
 	grid-template-areas: "mainchat sidechat1"
 						 "mainchat sidechat2";
 	/*@include LINE(5px,orange);*/
