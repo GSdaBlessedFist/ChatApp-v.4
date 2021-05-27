@@ -64,9 +64,15 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      text-decoration: none;
+      font-family: "Montserrat", sans-serif;
+      transition: all var(--quick);
       background: #333;
       border: 1px white solid; }
-    /* line 40, ../../src/scss/sidechat-grid.scss */
+      /* line 66, ../../src/scss/variables.scss */
+      .sidechat-title_expand-button:hover {
+        background: var(--c1); }
+    /* line 41, ../../src/scss/sidechat-grid.scss */
     .sidechat-title_text {
       grid-area: title;
       display: flex;
@@ -74,22 +80,28 @@
       align-items: center;
       background: #333;
       border: 1px white solid; }
-    /* line 45, ../../src/scss/sidechat-grid.scss */
+    /* line 46, ../../src/scss/sidechat-grid.scss */
     .sidechat-title_close-button {
       grid-area: close;
       display: flex;
       justify-content: center;
       align-items: center;
+      text-decoration: none;
+      font-family: "Montserrat", sans-serif;
+      transition: all var(--quick);
       background: #333;
       border: 1px white solid; }
-  /* line 55, ../../src/scss/sidechat-grid.scss */
+      /* line 66, ../../src/scss/variables.scss */
+      .sidechat-title_close-button:hover {
+        background: var(--c1); }
+  /* line 57, ../../src/scss/sidechat-grid.scss */
   .sidechat1 .sidechat-grid_message-area, .sidechat2 .sidechat-grid_message-area {
     grid-area: messageArea;
     overflow-y: auto;
     width: 100%;
     background: #333;
     border: 2px white solid; }
-  /* line 61, ../../src/scss/sidechat-grid.scss */
+  /* line 63, ../../src/scss/sidechat-grid.scss */
   .sidechat1 .sidechat-grid_send-component, .sidechat2 .sidechat-grid_send-component {
     grid-area: sendComponent;
     display: flex;
@@ -103,7 +115,7 @@
     background: #333;
     border: 2px white solid;
     /*ADD THESE TO SIDECHAT TOO*/ }
-    /* line 73, ../../src/scss/sidechat-grid.scss */
+    /* line 76, ../../src/scss/sidechat-grid.scss */
     .sidechat1 .sidechat-grid_send-component--send-button, .sidechat2 .sidechat-grid_send-component--send-button {
       margin-left: 10px;
       display: flex;
@@ -111,8 +123,14 @@
       align-items: center;
       width: 15%;
       height: 75%;
-      border: 1px white solid; }
-    /* line 80, ../../src/scss/sidechat-grid.scss */
+      border: 1px white solid;
+      text-decoration: none;
+      font-family: "Montserrat", sans-serif;
+      transition: all var(--quick); }
+      /* line 85, ../../src/scss/sidechat-grid.scss */
+      .sidechat1 .sidechat-grid_send-component--send-button:hover, .sidechat2 .sidechat-grid_send-component--send-button:hover {
+        background: var(--c1); }
+    /* line 89, ../../src/scss/sidechat-grid.scss */
     .sidechat1 .sidechat-grid_send-component--input, .sidechat2 .sidechat-grid_send-component--input {
       width: 60%;
       height: 75%;
@@ -123,7 +141,7 @@
       color: #333;
       font-size: 2vh;
       font-family: "Merienda", cursive; }
-    /* line 91, ../../src/scss/sidechat-grid.scss */
+    /* line 100, ../../src/scss/sidechat-grid.scss */
     .sidechat1 .sidechat-grid_send-component--features, .sidechat2 .sidechat-grid_send-component--features {
       display: flex;
       flex-direction: row;
@@ -133,7 +151,7 @@
       width: 20%;
       height: 75%;
       border: 1px white solid; }
-      /* line 101, ../../src/scss/sidechat-grid.scss */
+      /* line 110, ../../src/scss/sidechat-grid.scss */
       .sidechat1 .sidechat-grid_send-component--features_emojis, .sidechat2 .sidechat-grid_send-component--features_emojis {
         display: flex;
         justify-content: center;
@@ -141,9 +159,15 @@
         width: auto;
         height: 100%;
         padding: 2px 0px;
+        text-decoration: none;
+        font-family: "Montserrat", sans-serif;
+        transition: all var(--quick);
         background: #333;
         border: 0.5px white solid; }
-      /* line 110, ../../src/scss/sidechat-grid.scss */
+        /* line 66, ../../src/scss/variables.scss */
+        .sidechat1 .sidechat-grid_send-component--features_emojis:hover, .sidechat2 .sidechat-grid_send-component--features_emojis:hover {
+          background: var(--c1); }
+      /* line 120, ../../src/scss/sidechat-grid.scss */
       .sidechat1 .sidechat-grid_send-component--features_gifs, .sidechat2 .sidechat-grid_send-component--features_gifs {
         display: flex;
         justify-content: center;
@@ -151,9 +175,15 @@
         width: auto;
         height: 100%;
         padding: 2px 0px;
+        text-decoration: none;
+        font-family: "Montserrat", sans-serif;
+        transition: all var(--quick);
         background: #333;
         border: 0.5px white solid; }
-      /* line 119, ../../src/scss/sidechat-grid.scss */
+        /* line 66, ../../src/scss/variables.scss */
+        .sidechat1 .sidechat-grid_send-component--features_gifs:hover, .sidechat2 .sidechat-grid_send-component--features_gifs:hover {
+          background: var(--c1); }
+      /* line 130, ../../src/scss/sidechat-grid.scss */
       .sidechat1 .sidechat-grid_send-component--features_images, .sidechat2 .sidechat-grid_send-component--features_images {
         display: flex;
         justify-content: center;
@@ -161,5 +191,11 @@
         width: auto;
         height: 100%;
         padding: 2px 0px;
+        text-decoration: none;
+        font-family: "Montserrat", sans-serif;
+        transition: all var(--quick);
         background: #333;
         border: 0.5px white solid; }
+        /* line 66, ../../src/scss/variables.scss */
+        .sidechat1 .sidechat-grid_send-component--features_images:hover, .sidechat2 .sidechat-grid_send-component--features_images:hover {
+          background: var(--c1); }

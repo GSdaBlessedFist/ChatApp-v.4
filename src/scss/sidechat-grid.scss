@@ -34,6 +34,7 @@
 					grid-area: expand;
 					@include flexCenter;
 					@include flexCenter;
+					@include buttonize;
 					@include LINE(1px);
 					
 				}
@@ -45,6 +46,7 @@
 				&_close-button{
 					grid-area: close;
 					@include flexCenter;
+					@include buttonize;
 					@include LINE(1px);
 				}
 			}
@@ -59,6 +61,7 @@
 		@include LINE(2px);
 	}
 	&_send-component{
+		
 		grid-area: sendComponent;
 		display:flex;
 		justify-content: space-between;
@@ -76,6 +79,12 @@
 			width: 15%;
 			height: 75%;
 			border: 1px white solid;
+			text-decoration: none;
+			@include siteFont;
+			transition: all var(--quick);
+			&:hover{
+				background: var(--c1);
+			}
 		}
 		&--input{
 			width: 60%;
@@ -105,6 +114,7 @@
 				width: auto;
 				height: 100%;
 				padding: 2px 0px;
+				@include buttonize;
 				@include LINE(.5px);
 			}
 			&_gifs{
@@ -114,6 +124,7 @@
 				width: auto;
 				height: 100%;
 				padding: 2px 0px;
+				@include buttonize;
 				@include LINE(.5px);
 			}
 			&_images{
@@ -123,6 +134,7 @@
 				width: auto;
 				height: 100%;
 				padding: 2px 0px;
+				@include buttonize;
 				@include LINE(.5px);
 			}
 		}

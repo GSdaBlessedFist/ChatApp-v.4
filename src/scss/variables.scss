@@ -58,3 +58,12 @@
   justify-content:center;
   align-items: center;
 }
+
+@mixin buttonize{
+    text-decoration: none;
+    @include siteFont;
+    transition: all var(--quick);
+    &:hover{
+        background: var(--c1);
+    }
+}
