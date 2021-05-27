@@ -41,7 +41,7 @@
   .prime-container_header {
     grid-area: header;
     width: 100%;
-    background: #333;
+    background: #111;
     border: 3px white solid; }
   /* line 18, ../../src/scss/prime-container.scss */
   .prime-container_mainbody {
@@ -50,6 +50,6 @@
   /* line 22, ../../src/scss/prime-container.scss */
   .prime-container_footer {
     grid-area: footer;
-    background: #333;
+    background: #111;
     border: 3px white solid;
     width: 100%; }

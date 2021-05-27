@@ -30,7 +30,7 @@
   justify-content: center;
   height: var(--navbarHeight);
   /*background: var(--c2);*/
-  background: #333;
+  background: #111;
   border: 1px white solid;
   font-family: "Montserrat", sans-serif;
   font-size: 2rem;

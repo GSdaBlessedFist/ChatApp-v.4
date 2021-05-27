@@ -30,7 +30,7 @@
   height: var(--navbarHeight);
   /*background: var(--c2);*/
   overflow: hidden;
-  background: #333;
+  background: #111;
   border: 1px white solid; }
   /* line 11, ../../src/scss/header.scss */
   .header-title {

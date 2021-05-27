@@ -30,8 +30,8 @@
   display: grid;
   width: 100%;
   height: 82vh;
-  grid-template-columns: 70% 30%;
-  grid-template-rows: 50% 50%;
+  grid-template-columns: 100% 0%;
+  grid-template-rows: 100% 0%;
   grid-template-areas: "mainchat sidechat1" "mainchat sidechat2";
   /*@include LINE(5px,orange);*/
   background: #333;
