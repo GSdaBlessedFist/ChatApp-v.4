@@ -16,10 +16,7 @@
    display: none;
 }
 /* @include LINE(5px)*/
-@mixin LINE($weight,$color:white){
-  background: #111;
-  border: $weight $color solid;
-}
+
 
 /*MIXIN's*/
 @mixin grid($w, $h, $colQUOTES, $rQUOTES) {
@@ -66,4 +63,9 @@
     &:hover{
         background: var(--c1);
     }
+}
+
+@mixin LINE($weight,$color:white){
+  background: #111;
+  border: $weight $color solid;
 }

@@ -3,10 +3,14 @@ const app = express();
 const hbs = require('hbs');
 const morgan = require('morgan');
 const path = require('path');
-const server = require('http').Server(app);
-const io = require('socket.io')(server);
+// const server = require('http').Server(app);
+const socket = require('socket.io');
+const chalk = require('chalk');
 
 const port = process.env.PORT || 3400;
+const server = app.listen(port, () => {
+  console.log(`Red to go on port ${port}!`)
+});
 const nameofApp = "BlahBlahBlog";
 
 app.use(express.static('public'));
@@ -29,16 +33,32 @@ app.get("/",(req,res)=>{
     })
 })
 
+const io = socket(server);
+var clientNum = 0;
+var currentUsers = [];
 //Whenever someone connects this gets executed
 io.on('connection', function(socket) {
-   socket.emit('welcome',{message:"Welcome"})
 
+   clientNum++;
+   
+   socket.on('add-client',(data)=>{
+        currentUsers.push(data);
+        console.log(chalk.bgGreen.black.bold("Introducing..."+data.screenname))
+        console.log(currentUsers)
+        socket.emit('number-assignment',clientNum);
+    })
+
+    socket.on('message.chat',(data)=>{//<---
+        console.log(data)
+        io.sockets.emit('chat',{
+            screenname: data.screenname,
+            message: data.message
+        });
+    })
 
    socket.on('disconnect', () => {
-    console.log('user disconnected');
+    clientNum--;
    });
 });
 
-app.listen(port, () => {
-  console.log(`Red to go on port ${port}!`)
-});
+

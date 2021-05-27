@@ -43,7 +43,7 @@
       font-size: clamp(2.75rem, 3.5rem, 4rem);
       color: var(--c1);
       text-decoration: none;
-      opacity: .15;
+      opacity: .65;
       transition: opacity var(--quick); }
       /* line 22, ../../src/scss/header.scss */
       .header-title_a:hover {

@@ -57,22 +57,26 @@
   /* line 28, ../../src/scss/modals.scss */
   .signin-modal-message-box--title {
     grid-area: title;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: "Montserrat", sans-serif;
-    font-size: 2.5rem;
+    padding: 2px;
+    font-size: clamp(3vh, 3.5vh, 3.75vh);
     border-bottom: 2px rgba(255, 255, 255, 0.75) solid; }
-  /* line 34, ../../src/scss/modals.scss */
+  /* line 36, ../../src/scss/modals.scss */
   .signin-modal-message-box--input {
     grid-area: input;
     position: relative;
     top: 20%;
     width: 75%;
-    font-size: 2.5rem;
+    font-size: clamp(3vh, 3.5vh, 3.75vh);
     padding-left: 5px;
     padding-right: 5px;
     text-align: center;
     color: var(--c2);
     font-family: "Merienda", cursive; }
-  /* line 46, ../../src/scss/modals.scss */
+  /* line 48, ../../src/scss/modals.scss */
   .signin-modal-message-box--space {
     grid-area: space;
     border-top: 2px rgba(255, 255, 255, 0.75) solid;

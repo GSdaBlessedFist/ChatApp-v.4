@@ -69,7 +69,7 @@
       transition: all var(--quick);
       background: #111;
       border: 1px white solid; }
-      /* line 66, ../../src/scss/variables.scss */
+      /* line 63, ../../src/scss/variables.scss */
       .sidechat-title_expand-button:hover {
         background: var(--c1); }
     /* line 41, ../../src/scss/sidechat-grid.scss */
@@ -91,7 +91,7 @@
       transition: all var(--quick);
       background: #111;
       border: 1px white solid; }
-      /* line 66, ../../src/scss/variables.scss */
+      /* line 63, ../../src/scss/variables.scss */
       .sidechat-title_close-button:hover {
         background: var(--c1); }
   /* line 57, ../../src/scss/sidechat-grid.scss */
@@ -164,7 +164,7 @@
         transition: all var(--quick);
         background: #111;
         border: 0.5px white solid; }
-        /* line 66, ../../src/scss/variables.scss */
+        /* line 63, ../../src/scss/variables.scss */
         .sidechat1 .sidechat-grid_send-component--features_emojis:hover, .sidechat2 .sidechat-grid_send-component--features_emojis:hover {
           background: var(--c1); }
       /* line 120, ../../src/scss/sidechat-grid.scss */
@@ -180,7 +180,7 @@
         transition: all var(--quick);
         background: #111;
         border: 0.5px white solid; }
-        /* line 66, ../../src/scss/variables.scss */
+        /* line 63, ../../src/scss/variables.scss */
         .sidechat1 .sidechat-grid_send-component--features_gifs:hover, .sidechat2 .sidechat-grid_send-component--features_gifs:hover {
           background: var(--c1); }
       /* line 130, ../../src/scss/sidechat-grid.scss */
@@ -196,6 +196,6 @@
         transition: all var(--quick);
         background: #111;
         border: 0.5px white solid; }
-        /* line 66, ../../src/scss/variables.scss */
+        /* line 63, ../../src/scss/variables.scss */
         .sidechat1 .sidechat-grid_send-component--features_images:hover, .sidechat2 .sidechat-grid_send-component--features_images:hover {
           background: var(--c1); }

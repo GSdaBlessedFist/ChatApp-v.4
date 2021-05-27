@@ -39,7 +39,7 @@
   .footer-link {
     color: var(--c1);
     text-decoration: none;
-    opacity: .15;
+    opacity: .65;
     transition: opacity var(--quick); }
     /* line 19, ../../src/scss/footer.scss */
     .footer-link:hover {
