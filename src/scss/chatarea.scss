@@ -1,14 +1,10 @@
 @import "variables";
 @import "font";
 
-.alternate-grid{
-	
-}
-
 .chat-area{
 	padding: 2px;
 	margin: 2px 0px;
-	@include grid(100%,82vh,"70% 30%","100% 0%");
+	@include grid(100%,82vh,"70% 30%","50% 50%");
 	grid-template-areas: "mainchat sidechat1"
 						 "mainchat sidechat2";
 	/*@include LINE(5px,orange);*/
@@ -20,7 +16,6 @@
 	}
 	/*-->sidechat-grid.scss*/
 	&_sidechat1-window{
-		
 		grid-area : sidechat1;
 	}
 	&_sidechat2-window{

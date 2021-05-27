@@ -23,7 +23,7 @@
 
 /* @include LINE(5px)*/
 /*MIXIN's*/
-/* line 8, ../../src/scss/chatarea.scss */
+/* line 4, ../../src/scss/chatarea.scss */
 .chat-area {
   padding: 2px;
   margin: 2px 0px;
@@ -31,20 +31,20 @@
   width: 100%;
   height: 82vh;
   grid-template-columns: 70% 30%;
-  grid-template-rows: 100% 0%;
+  grid-template-rows: 50% 50%;
   grid-template-areas: "mainchat sidechat1" "mainchat sidechat2";
   /*@include LINE(5px,orange);*/
   background: #333;
   filter: saturate(5);
   /*-->sidechat-grid.scss*/ }
-  /* line 17, ../../src/scss/chatarea.scss */
+  /* line 13, ../../src/scss/chatarea.scss */
   .chat-area_mainchat-window {
     /*-->mainchat-grid.scss*/
     grid-area: mainchat; }
-  /* line 22, ../../src/scss/chatarea.scss */
+  /* line 18, ../../src/scss/chatarea.scss */
   .chat-area_sidechat1-window {
     grid-area: sidechat1; }
-  /* line 26, ../../src/scss/chatarea.scss */
+  /* line 21, ../../src/scss/chatarea.scss */
   .chat-area_sidechat2-window {
     /*-->sidechat-grid.scss*/
     grid-area: sidechat2; }

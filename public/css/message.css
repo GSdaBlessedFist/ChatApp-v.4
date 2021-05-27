@@ -1,0 +1,46 @@
+/* line 1, ../../src/scss/variables.scss */
+:root {
+  --navbarHeight: 70px;
+  /*Colors*/
+  --c1: #aabbcc;
+  --c2: #557675;
+  --c3: #223344;
+  /*Timings*/
+  --quick: .5s;
+  --lazy: .95s; }
+
+/*HELPERS*/
+/* line 12, ../../src/scss/variables.scss */
+.r {
+  border: 5px red solid; }
+
+/* line 15, ../../src/scss/variables.scss */
+.x {
+  display: none; }
+
+/* @include LINE(5px)*/
+/*MIXIN's*/
+/* line 3, ../../src/scss/message.scss */
+.messageObj {
+  display: block;
+  width: 55%;
+  border: 1px white solid; }
+  /* line 7, ../../src/scss/message.scss */
+  .messageObj--screenname {
+    display: block;
+    text-decoration: none; }
+  /* line 11, ../../src/scss/message.scss */
+  .messageObj--message {
+    padding: 5px;
+    padding-left: 25px; }
+  /* line 15, ../../src/scss/message.scss */
+  .messageObj--image {
+    border-top: 2px white solid;
+    height: 500px;
+    background: #333;
+    border: 1px white solid; }
+
+/* line 21, ../../src/scss/message.scss */
+.others-message {
+  position: relative;
+  right: -45%; }

@@ -1,0 +1,24 @@
+@import "variables";
+
+.messageObj{
+    display: block;
+    width: 55%;
+    border: 1px white solid;
+  &--screenname{
+    display: block;
+    text-decoration: none;
+  }
+  &--message{
+    padding: 5px;
+    padding-left: 25px;
+  }
+  &--image{
+    border-top: 2px white solid;
+    height: 500px;
+    @include LINE(1px);
+  }
+}
+.others-message{
+  position: relative;
+  right: -45%;
+}
