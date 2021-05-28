@@ -1,4 +1,5 @@
 //signin.js;
+
 const a = alert;
 const p = console.log;
 p("start")
@@ -35,12 +36,12 @@ const screenname = noSpaces(signinModalMessageBoxInput.value) || signinModalMess
 //////////////////////// COMMs ////////////////////////
 document.body.addEventListener("keyup", (e) => {
 	
-	if (e.keyCode === 13) {
+	if (e.keyCode === 13 && signinModal.style.opacity!==0) {
         socket.emit("add-client", {
             screenname,
             socketinfo: socket.id
         })
-
+        p("up to this point")
         gsap.to(signinModalMessageBox,{opacity:0,duration:lazyFadeOutTime});
         gsap.to(siginModalScreen,{opacity:0,duration:lazyFadeOutTime,delay:.45});
 
@@ -49,6 +50,8 @@ document.body.addEventListener("keyup", (e) => {
             signinModal.classList.add("x");
         },lazyFadeOutTime)
     }  
+    document.getElementById("mainchat-input").autofocus=true;
+    
 })
 
 

@@ -12,14 +12,7 @@ const p = console.log;
 const mainchatSendButton = document.getElementById("mainchat-sendButton"),
       mainchatInput= document.getElementById("mainchat-input"),
       mainchatMessageArea= document.getElementById("mainchat-messageArea");
-// mainchatMessageArea.innerHTML="";
-// const msg = `
-//         <div class="messageObj">
-//              <a href="#" class="messageObj--screenname"><div >${data.screenname}</div></a>
-//              <div class="messageObj--message">${data.message}</div>
-//              <div class="messageObj--image">${data.image}</div>
-//         </div>
-//     `;
+mainchatMessageArea.innerHTML="";
 
 mainchatSendButton.addEventListener("click", (e) => {
     e.preventDefault();
@@ -62,5 +55,3 @@ socket.on('chat',(data)=>{
     })
 
 })
-
-

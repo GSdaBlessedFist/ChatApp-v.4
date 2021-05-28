@@ -184,23 +184,24 @@
 .messageObj {
   display: block;
   width: 55%;
+  text-align: left;
   border: 1px white solid; }
-  /* line 7, ../../src/scss/message.scss */
+  /* line 8, ../../src/scss/message.scss */
   .messageObj--screenname {
     display: block;
     text-decoration: none; }
-  /* line 11, ../../src/scss/message.scss */
+  /* line 12, ../../src/scss/message.scss */
   .messageObj--message {
     padding: 5px;
     padding-left: 25px; }
-  /* line 15, ../../src/scss/message.scss */
+  /* line 16, ../../src/scss/message.scss */
   .messageObj--image {
     border-top: 2px white solid;
     height: 500px;
     background: #111;
     border: 1px white solid; }
 
-/* line 21, ../../src/scss/message.scss */
+/* line 22, ../../src/scss/message.scss */
 .others-message {
   text-align: right;
   position: relative;
