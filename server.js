@@ -51,8 +51,10 @@ io.on('connection', function(socket) {
     socket.on('message.chat',(data)=>{//<---
         console.log(data)
         io.sockets.emit('chat',{
+            socketInfo :socket.id,
             screenname: data.screenname,
-            message: data.message
+            message: data.message,
+            image: data.image
         });
     })
 

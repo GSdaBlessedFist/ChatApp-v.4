@@ -42,5 +42,6 @@
 
 /* line 21, ../../src/scss/message.scss */
 .others-message {
+  text-align: right;
   position: relative;
   right: -45%; }

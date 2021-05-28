@@ -12,11 +12,7 @@
 	<!-- //////////////TEMP MESSAGE/////////////////// -->
 
 
-	<div class="mainchat-grid_message-area">
-		
-
-
-	</div>
+	<div class="mainchat-grid_message-area" id="mainchat-messageArea"></div>
 
 
 	<!-- ////////////////////////////////////// -->
@@ -24,9 +20,11 @@
 	<!-- ////////////////////////////////////// -->
 	<div class="mainchat-grid_send-component">
 		<!-- ADD THESE TO SIDECHAT TOO -->
-		<a href="#" class="mainchat-grid_send-component--send-button"><div >SEND</div></a>
+		<!-- <a href="#" class="mainchat-grid_send-component--send-button" id="mainchat-sendButton"><div >SEND</div></a> -->
 		
-		<input type="text" class="mainchat-grid_send-component--input" placeholder="send a message..."></input>
+		<input type="submit" class="mainchat-grid_send-component--send-button" id="mainchat-sendButton" value="SEND" autofocus/>
+
+		<input type="text" class="mainchat-grid_send-component--input" id="mainchat-input" placeholder="send a message..."></input>
 		<div class="mainchat-grid_send-component--features">
 			<a href="#" class="mainchat-grid_send-component--features_emojis"><div >X</div></a>
 			<a href="#" class="mainchat-grid_send-component--features_gifs"><div >X</div></a>

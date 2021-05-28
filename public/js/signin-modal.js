@@ -3,10 +3,13 @@ const a = alert;
 const p = console.log;
 p("start")
 const url = "http://localhost:3400";
-const socket = io.connect(url);
+// const socket = io.connect(url);
+const socket = io();
 var clientNumber;
 
-const siginModalScreen= document.getElementById("sigin-modal-screen"),
+
+const signinModal= document.getElementById("signin-modal"),
+      siginModalScreen= document.getElementById("sigin-modal-screen"),
 	  signinModalMessageBox= document.getElementById("signin-modal-message-box"),
 	  signinModalMessageBoxInput= document.getElementById("signin-modal-message-box--input");	  
 
@@ -31,26 +34,30 @@ const screenname = noSpaces(signinModalMessageBoxInput.value) || signinModalMess
 
 //////////////////////// COMMs ////////////////////////
 document.body.addEventListener("keyup", (e) => {
-	p("ENTER has been pressed at the signin modal");
+	
 	if (e.keyCode === 13) {
         socket.emit("add-client", {
             screenname,
             socketinfo: socket.id
         })
 
-        
         gsap.to(signinModalMessageBox,{opacity:0,duration:lazyFadeOutTime});
         gsap.to(siginModalScreen,{opacity:0,duration:lazyFadeOutTime,delay:.45});
-        
-        
 
-    }
-    
+        /////////// CLOSES SIGNIN MODAL ///////////
+        setTimeout(()=>{
+            signinModal.classList.add("x");
+        },lazyFadeOutTime)
+    }  
 })
 
 
 export {
 	url,
 	socket,
-	styles
+	styles,
+    noSpaces,
+    screenname,
+    lazyFadeOutTime,
+    quickFadeOutTime
 }

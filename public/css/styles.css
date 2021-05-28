@@ -108,7 +108,7 @@
   height: 82.5vh;
   background: #111;
   border: 2px white solid;
-  opacity: .97; }
+  opacity: .75; }
 
 /* line 17, ../../src/scss/modals.scss */
 .signin-modal-message-box {
@@ -202,6 +202,7 @@
 
 /* line 21, ../../src/scss/message.scss */
 .others-message {
+  text-align: right;
   position: relative;
   right: -45%; }
 
