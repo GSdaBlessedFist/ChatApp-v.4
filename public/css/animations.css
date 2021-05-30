@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Slab&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merienda&display=swap");
+/* line 1, ../../src/scss/variables.scss */
+:root {
+  --navbarHeight: 70px;
+  /*Colors*/
+  --c1: #aabbcc;
+  --c2: #557675;
+  --c3: #223344;
+  /*Timings*/
+  --quick: .5s;
+  --lazy: .95s;
+  /*ease timing*/
+  --bounceEase: cubic-bezier(0.175, 0.985, 0.5, 1.25); }
+
+/*HELPERS*/
+/* line 14, ../../src/scss/variables.scss */
+.r {
+  border: 5px red solid; }
+
+/* line 17, ../../src/scss/variables.scss */
+.x {
+  display: none; }
+
+/* @include LINE(5px)*/
+/*MIXIN's*/
+/*.className{
+  @include anime($name,$time,$reps);
+}*/
+/*@keyframes growth{
+	0% {
+		grid-template-columns: 50% 50%;
+		grid-template-rows: 50% 50%;
+	}
+	25% {
+		grid-template-columns: 75% 25%;
+		grid-template-rows: 25% 75%;
+	}
+	50% {
+		grid-template-columns: 75% 25%;
+		grid-template-rows: 75% 25%;
+	}
+	75% {
+		grid-template-columns: 25% 75%;
+		grid-template-rows: 75% 25%;
+	}
+	100% {
+		grid-template-columns: 50% 50%;
+		grid-template-rows: 50% 50%;
+	}
+}*/
+/*during the 2/3 window switch, change the grid-area*/
+/* line 32, ../../src/scss/animations.scss */
+.main_sidechat1_open {
+  animation: MCsidechat1OPEN 0.75s infinite;
+  /*animation-timing-function: ease-in;*/
+  animation-iteration-count: 1;
+  animation-timing-function: var(--bounceEase);
+  animation-fill-mode: forwards; }
+
+/* line 36, ../../src/scss/animations.scss */
+.main_sidechat1_openExpanded {
+  animation: MCsidechat1OPENexpanded 0.75s infinite;
+  /*animation-timing-function: ease-in;*/
+  animation-iteration-count: 1;
+  animation-timing-function: var(--bounceEase);
+  animation-fill-mode: forwards; }
+
+@keyframes MCsidechat1OPEN {
+  0% {
+    grid-template-columns: 100% 0%; }
+  100% {
+    grid-template-columns: 70% 30%; } }
+@keyframes MCsidechat1OPENexpanded {
+  0% {
+    grid-template-columns: 70% 30%; }
+  100% {
+    grid-template-columns: 50% 50%; } }
+/* line 56, ../../src/scss/animations.scss */
+.main_sidechat1_close {
+  animation: MCsidechat1OPEN 0.75s infinite;
+  /*animation-timing-function: ease-in;*/
+  animation-iteration-count: 1;
+  animation-timing-function: var(--bounceEase);
+  animation-fill-mode: forwards;
+  animation-direction: reverse; }
+
+/*@keyframes MCsidechat1OPEN{
+	0% {
+		grid-template-columns: 100% 0%;
+		grid-template-rows: 100% 0%;
+	}
+	100% {
+		grid-template-columns: 70% 30%;
+		grid-template-rows: 100% 0%;
+	}
+}*/

@@ -8,12 +8,12 @@ import {
     quickFadeOutTime
 } from "./signin-modal.js";
 const p = console.log;
-
-const mainchatSendButton = document.getElementById("mainchat-sendButton"),
-      mainchatInput= document.getElementById("mainchat-input"),
-      mainchatMessageArea= document.getElementById("mainchat-messageArea");
-mainchatMessageArea.innerHTML="";
-
+const chatArea = document.getElementById("chat-area"),
+    mainchatExpand = document.getElementById("mainchat-expand"),
+    mainchatSendButton = document.getElementById("mainchat-sendButton"),
+    mainchatInput = document.getElementById("mainchat-input"),
+    mainchatMessageArea = document.getElementById("mainchat-messageArea");
+mainchatMessageArea.innerHTML = "";
 mainchatSendButton.addEventListener("click", (e) => {
     e.preventDefault();
     p(mainchatInput.value)
@@ -24,14 +24,13 @@ mainchatSendButton.addEventListener("click", (e) => {
             // action: "a message was sent"
             screenname,
             message: mainchatInput.value,
-            image:null
+            image: null
         })
     }
-    mainchatInput.value="";
+    mainchatInput.value = "";
 })
-
-socket.on('chat',(data)=>{
-    mainchatMessageArea.innerHTML+= `
+socket.on('chat', (data) => {
+    mainchatMessageArea.innerHTML += `
         <div class="messageObj ${socket.id==data.socketInfo?"":"others-message"}">
              <a href="#" class="messageObj--screenname"><div >${data.screenname}:</div></a>
              <div class="messageObj--message">${data.message}</div>
@@ -39,12 +38,11 @@ socket.on('chat',(data)=>{
         </div>
     `;
     var links = Array.from(document.getElementsByClassName("messageObj--screenname"));
-
     links.forEach((link) => {
         link.addEventListener("click", function(e) {
             let reciever = link.innerHTML;
             e.preventDefault();
-
+            chatArea.classList.add('main_sidechat1_open');
             // socket.emit('getid')
             socket.emit('message-invite', {
                 sender: screenname,
@@ -53,5 +51,15 @@ socket.on('chat',(data)=>{
             })
         })
     })
-
+})
+const sidechatExpand = document.getElementById("sidechat-expand");
+sidechatExpand.addEventListener('click', function() {
+    chatArea.classList.replace('main_sidechat1_open', 'main_sidechat1_openExpanded');
+})
+mainchatExpand.addEventListener('click', function() {
+    if (chatArea.contains('main_sidechat1_openExpanded')) {
+        chatArea.classList.replace('main_sidechat1_openExpanded', 'main_sidechat1_open');
+    } else {
+        console.log('none')
+    };
 })

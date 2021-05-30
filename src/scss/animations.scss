@@ -1,0 +1,71 @@
+@import "variables";
+@import "font";
+
+/*.className{
+  @include anime($name,$time,$reps);
+}*/
+
+/*@keyframes growth{
+	0% {
+		grid-template-columns: 50% 50%;
+		grid-template-rows: 50% 50%;
+	}
+	25% {
+		grid-template-columns: 75% 25%;
+		grid-template-rows: 25% 75%;
+	}
+	50% {
+		grid-template-columns: 75% 25%;
+		grid-template-rows: 75% 25%;
+	}
+	75% {
+		grid-template-columns: 25% 75%;
+		grid-template-rows: 75% 25%;
+	}
+	100% {
+		grid-template-columns: 50% 50%;
+		grid-template-rows: 50% 50%;
+	}
+}*/
+
+/*during the 2/3 window switch, change the grid-area*/
+.main_sidechat1_open{
+	@include anime(MCsidechat1OPEN,.75s,1);
+	animation-fill-mode: forwards;
+}
+.main_sidechat1_openExpanded{
+	@include anime(MCsidechat1OPENexpanded,.75s,1);
+	animation-fill-mode: forwards;
+}
+@keyframes MCsidechat1OPEN{
+	0% {
+		grid-template-columns: 100% 0%;
+	}
+	100% {
+		grid-template-columns: 70% 30%;
+	}
+}
+@keyframes MCsidechat1OPENexpanded{
+	0% {
+		grid-template-columns: 70% 30%;
+	}
+	100% {
+		grid-template-columns: 50% 50%;
+	}
+}
+.main_sidechat1_close{
+	@include anime(MCsidechat1OPEN,.75s,1);
+	animation-fill-mode: forwards;
+	animation-direction: reverse;
+}
+
+/*@keyframes MCsidechat1OPEN{
+	0% {
+		grid-template-columns: 100% 0%;
+		grid-template-rows: 100% 0%;
+	}
+	100% {
+		grid-template-columns: 70% 30%;
+		grid-template-rows: 100% 0%;
+	}
+}*/

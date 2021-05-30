@@ -10,14 +10,16 @@
   --c3: #223344;
   /*Timings*/
   --quick: .5s;
-  --lazy: .95s; }
+  --lazy: .95s;
+  /*ease timing*/
+  --bounceEase: cubic-bezier(0.175, 0.985, 0.5, 1.25); }
 
 /*HELPERS*/
-/* line 12, ../../src/scss/variables.scss */
+/* line 14, ../../src/scss/variables.scss */
 .r {
   border: 5px red solid; }
 
-/* line 15, ../../src/scss/variables.scss */
+/* line 17, ../../src/scss/variables.scss */
 .x {
   display: none; }
 
@@ -27,24 +29,26 @@
 .chat-area {
   padding: 2px;
   margin: 2px 0px;
+  /*@mixin grid($w, $h, $colQUOTES, $rQUOTES)*/
   display: grid;
   width: 100%;
   height: 82vh;
   grid-template-columns: 100% 0%;
   grid-template-rows: 100% 0%;
+  /*@include grid(100%,82vh,"100% 0%","100% 0%");*/
   grid-template-areas: "mainchat sidechat1" "mainchat sidechat2";
   /*@include LINE(5px,orange);*/
   background: #333;
   filter: saturate(5);
   /*-->sidechat-grid.scss*/ }
-  /* line 13, ../../src/scss/chatarea.scss */
+  /* line 15, ../../src/scss/chatarea.scss */
   .chat-area_mainchat-window {
     /*-->mainchat-grid.scss*/
     grid-area: mainchat; }
-  /* line 18, ../../src/scss/chatarea.scss */
+  /* line 20, ../../src/scss/chatarea.scss */
   .chat-area_sidechat1-window {
     grid-area: sidechat1; }
-  /* line 21, ../../src/scss/chatarea.scss */
+  /* line 23, ../../src/scss/chatarea.scss */
   .chat-area_sidechat2-window {
     /*-->sidechat-grid.scss*/
     grid-area: sidechat2; }
