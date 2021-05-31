@@ -231,7 +231,7 @@
     height: 100%;
     grid-template-columns: 4vw auto 4vw;
     grid-template-rows: 1fr;
-    grid-template-areas: "expand title close";
+    grid-template-areas: "hidden title expand";
     position: relative;
     top: 0px;
     text-align: center;
@@ -241,6 +241,28 @@
     background: #111;
     border: 2px white solid; }
     /* line 25, ../../src/scss/mainchat-grid.scss */
+    .mainchat-title_hidden-button {
+      grid-area: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      font-family: "Montserrat", sans-serif;
+      transition: all var(--quick);
+      background: #111;
+      border: 1px white solid; }
+      /* line 65, ../../src/scss/variables.scss */
+      .mainchat-title_hidden-button:hover {
+        background: var(--c1); }
+    /* line 32, ../../src/scss/mainchat-grid.scss */
+    .mainchat-title_text {
+      grid-area: title;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #111;
+      border: 1px white solid; }
+    /* line 37, ../../src/scss/mainchat-grid.scss */
     .mainchat-title_expand-button {
       grid-area: expand;
       display: flex;
@@ -253,28 +275,6 @@
       border: 1px white solid; }
       /* line 65, ../../src/scss/variables.scss */
       .mainchat-title_expand-button:hover {
-        background: var(--c1); }
-    /* line 32, ../../src/scss/mainchat-grid.scss */
-    .mainchat-title_text {
-      grid-area: title;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #111;
-      border: 1px white solid; }
-    /* line 37, ../../src/scss/mainchat-grid.scss */
-    .mainchat-title_close-button {
-      grid-area: close;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-decoration: none;
-      font-family: "Montserrat", sans-serif;
-      transition: all var(--quick);
-      background: #111;
-      border: 1px white solid; }
-      /* line 65, ../../src/scss/variables.scss */
-      .mainchat-title_close-button:hover {
         background: var(--c1); }
   /* line 46, ../../src/scss/mainchat-grid.scss */
   .mainchat-grid_message-area {
@@ -647,6 +647,15 @@
 /* line 56, ../../src/scss/animations.scss */
 .main_sidechat1_close {
   animation: MCsidechat1OPEN 0.75s infinite;
+  /*animation-timing-function: ease-in;*/
+  animation-iteration-count: 1;
+  animation-timing-function: var(--bounceEase);
+  animation-fill-mode: forwards;
+  animation-direction: reverse; }
+
+/* line 61, ../../src/scss/animations.scss */
+.main_sidechat1_closeExpanded {
+  animation: MCsidechat1OPENexpanded 0.75s infinite;
   /*animation-timing-function: ease-in;*/
   animation-iteration-count: 1;
   animation-timing-function: var(--bounceEase);

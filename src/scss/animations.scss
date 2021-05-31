@@ -58,6 +58,11 @@
 	animation-fill-mode: forwards;
 	animation-direction: reverse;
 }
+.main_sidechat1_closeExpanded{
+	@include anime(MCsidechat1OPENexpanded,.75s,1);
+	animation-fill-mode: forwards;
+	animation-direction: reverse;
+}
 
 /*@keyframes MCsidechat1OPEN{
 	0% {

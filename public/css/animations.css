@@ -86,6 +86,15 @@
   animation-fill-mode: forwards;
   animation-direction: reverse; }
 
+/* line 61, ../../src/scss/animations.scss */
+.main_sidechat1_closeExpanded {
+  animation: MCsidechat1OPENexpanded 0.75s infinite;
+  /*animation-timing-function: ease-in;*/
+  animation-iteration-count: 1;
+  animation-timing-function: var(--bounceEase);
+  animation-fill-mode: forwards;
+  animation-direction: reverse; }
+
 /*@keyframes MCsidechat1OPEN{
 	0% {
 		grid-template-columns: 100% 0%;

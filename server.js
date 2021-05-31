@@ -57,6 +57,11 @@ io.on('connection', function(socket) {
             image: data.image
         });
     })
+    socket.on('message-invite',(data)=>{
+        io.sockets.emit("chat-with",{
+            receiver:data.receiver
+        })
+    })
 
    socket.on('disconnect', () => {
     clientNum--;

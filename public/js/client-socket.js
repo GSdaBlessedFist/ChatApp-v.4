@@ -40,8 +40,9 @@ socket.on('chat', (data) => {
     var links = Array.from(document.getElementsByClassName("messageObj--screenname"));
     links.forEach((link) => {
         link.addEventListener("click", function(e) {
-            let reciever = link.innerHTML;
+            let receiver = link.innerText;
             e.preventDefault();
+            console.log(receiver);
             chatArea.classList.add('main_sidechat1_open');
             // socket.emit('getid')
             socket.emit('message-invite', {
@@ -57,9 +58,10 @@ sidechatExpand.addEventListener('click', function() {
     chatArea.classList.replace('main_sidechat1_open', 'main_sidechat1_openExpanded');
 })
 mainchatExpand.addEventListener('click', function() {
-    if (chatArea.contains('main_sidechat1_openExpanded')) {
-        chatArea.classList.replace('main_sidechat1_openExpanded', 'main_sidechat1_open');
-    } else {
-        console.log('none')
-    };
+        
+    if (chatArea.classList.contains('main_sidechat1_openExpanded')) {
+        chatArea.classList.replace('main_sidechat1_openExpanded', 'main_sidechat1_closeExpanded');
+    } else{
+        chatArea.classList.replace('main_sidechat1_closeExpanded',"main_sidechat1_close");
+    }
 })

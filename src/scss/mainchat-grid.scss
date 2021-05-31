@@ -12,7 +12,7 @@
 	&_title{
 		grid-area: title;
 		@include grid(100%,100%,"4vw auto 4vw","1fr");
-		grid-template-areas:"expand title close";
+		grid-template-areas:"hidden title expand";
 		position: relative;
 		top: 0px;
 		text-align: center;
@@ -22,8 +22,8 @@
 		@include LINE(2px);
 		@at-root{
 			.mainchat-title{
-				&_expand-button{
-					grid-area: expand;
+				&_hidden-button{
+					grid-area: hidden;
 					@include flexCenter;
 					@include buttonize;
 					@include LINE(1px);
@@ -34,8 +34,8 @@
 					@include flexCenter;
 					@include LINE(1px);
 				}
-				&_close-button{
-					grid-area: close;
+				&_expand-button{
+					grid-area: expand;
 					@include flexCenter;
 					@include buttonize;
 					@include LINE(1px);
