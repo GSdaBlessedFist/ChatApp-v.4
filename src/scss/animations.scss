@@ -1,32 +1,36 @@
 @import "variables";
 @import "font";
 
-/*.className{
-  @include anime($name,$time,$reps);
-}*/
-
-/*@keyframes growth{
-	0% {
-		grid-template-columns: 50% 50%;
-		grid-template-rows: 50% 50%;
-	}
-	25% {
-		grid-template-columns: 75% 25%;
-		grid-template-rows: 25% 75%;
-	}
-	50% {
-		grid-template-columns: 75% 25%;
-		grid-template-rows: 75% 25%;
-	}
-	75% {
-		grid-template-columns: 25% 75%;
-		grid-template-rows: 75% 25%;
-	}
-	100% {
-		grid-template-columns: 50% 50%;
-		grid-template-rows: 50% 50%;
-	}
-}*/
+/*STATIC GRID CONFIGURATIONS*/
+@mixin mainchatGrid{
+	grid-template-columns: 100% 0%;
+	grid-template-rows: 100% 0%;
+}
+@mixin twoChatsGrid{
+	grid-template-columns: 70% 30%;
+	grid-template-rows: 100% 0%;
+}
+@mixin expandedTwoChatsGrid{
+	grid-template-columns: 50% 50%;
+	grid-template-rows: 100% 0%;
+}
+@mixin threeChatsGrid{
+	grid-template-columns: 70% 30%;
+	grid-template-rows: 50% 50%;	
+}
+@mixin expandedThreeChatsGrid{
+	grid-template-columns: 50% 50%;
+	grid-template-rows: 50% 50%;
+}
+.defaultGrid{
+	@include mainchatGrid;
+}
+.twoChatsGrid{
+	@include twoChatsGrid;
+}
+.threeChatsGrid{
+	@include threeChatsGrid;
+}
 
 /*during the 2/3 window switch, change the grid-area*/
 .main_sidechat1_open{
@@ -63,14 +67,23 @@
 	animation-fill-mode: forwards;
 	animation-direction: reverse;
 }
-
-/*@keyframes MCsidechat1OPEN{
+/*---------SIDECHAT WINDOWS---------*/
+.sidechat1_sidechat2_open{
+	@include anime(sidechat1AndSidechat2OPEN,.75s,1);
+	animation-fill-mode: forwards;
+}
+@keyframes sidechat1AndSidechat2OPEN{
 	0% {
-		grid-template-columns: 100% 0%;
+		grid-template-columns: inherit;
 		grid-template-rows: 100% 0%;
 	}
 	100% {
-		grid-template-columns: 70% 30%;
-		grid-template-rows: 100% 0%;
+		grid-template-columns: inherit;
+		grid-template-rows: 50% 50%;
 	}
-}*/
+}
+.sidechat1_sidechat2_close{
+	@include anime(sidechat1AndSidechat2OPEN,.75s,1);
+	animation-fill-mode: forwards;
+	animation-direction: reverse;
+}

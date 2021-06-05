@@ -13,6 +13,8 @@ const chatArea = document.getElementById("chat-area"),
     mainchatSendButton = document.getElementById("mainchat-sendButton"),
     mainchatInput = document.getElementById("mainchat-input"),
     mainchatMessageArea = document.getElementById("mainchat-messageArea");
+
+mainchatExpand.style.display = "none";
 mainchatMessageArea.innerHTML = "";
 mainchatSendButton.addEventListener("click", (e) => {
     e.preventDefault();
@@ -40,9 +42,15 @@ socket.on('chat', (data) => {
     var links = Array.from(document.getElementsByClassName("messageObj--screenname"));
     links.forEach((link) => {
         link.addEventListener("click", function(e) {
+            mainchatExpand.style.display= "flex";
             let receiver = link.innerText;
             e.preventDefault();
             console.log(receiver);
+
+            // if sidechat1 is already open then add .sidechat1_sidechat2_open
+            if (chatArea.classList.contains('main_sidechat1_open')) {
+                chatArea.classList.add('sidechat1_sidechat2_open')
+            }
             chatArea.classList.add('main_sidechat1_open');
             // socket.emit('getid')
             socket.emit('message-invite', {
@@ -58,10 +66,29 @@ sidechatExpand.addEventListener('click', function() {
     chatArea.classList.replace('main_sidechat1_open', 'main_sidechat1_openExpanded');
 })
 mainchatExpand.addEventListener('click', function() {
-        
     if (chatArea.classList.contains('main_sidechat1_openExpanded')) {
         chatArea.classList.replace('main_sidechat1_openExpanded', 'main_sidechat1_closeExpanded');
-    } else{
-        chatArea.classList.replace('main_sidechat1_closeExpanded',"main_sidechat1_close");
+
+    } else if (chatArea.classList.contains('main_sidechat1_closeExpanded')) {
+        chatArea.classList.replace('main_sidechat1_closeExpanded', "main_sidechat1_close");
+        setTimeout(function() {
+                chatArea.classList.remove('main_sidechat1_close')
+            }, lazyFadeOutTime)
+    } else {
+        if (!chatArea.classList.contains('main_sidechat1_openExpanded') && !chatArea.classList.contains('main_sidechat1_close')) {
+            chatArea.classList.add('defaultGrid');
+        }
     }
 })
+
+
+
+// if (chatArea.classList.contains('main_sidechat1_openExpanded')) {
+//         chatArea.classList.replace('main_sidechat1_openExpanded', 'main_sidechat1_closeExpanded');
+//     } else {
+//         chatArea.classList.replace('main_sidechat1_closeExpanded', "main_sidechat1_close");
+//         setTimeout(function() {
+//             chatArea.classList.remove('main_sidechat1_close')
+//         }, quickFadeOutTime)
+//             // add else if
+//     }

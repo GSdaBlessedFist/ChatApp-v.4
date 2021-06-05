@@ -592,33 +592,24 @@
 ::-webkit-scrollbar-thumb:hover {
   background: var(--c3); }
 
-/*.className{
-  @include anime($name,$time,$reps);
-}*/
-/*@keyframes growth{
-	0% {
-		grid-template-columns: 50% 50%;
-		grid-template-rows: 50% 50%;
-	}
-	25% {
-		grid-template-columns: 75% 25%;
-		grid-template-rows: 25% 75%;
-	}
-	50% {
-		grid-template-columns: 75% 25%;
-		grid-template-rows: 75% 25%;
-	}
-	75% {
-		grid-template-columns: 25% 75%;
-		grid-template-rows: 75% 25%;
-	}
-	100% {
-		grid-template-columns: 50% 50%;
-		grid-template-rows: 50% 50%;
-	}
-}*/
+/*STATIC GRID CONFIGURATIONS*/
+/* line 25, ../../src/scss/animations.scss */
+.defaultGrid {
+  grid-template-columns: 100% 0%;
+  grid-template-rows: 100% 0%; }
+
+/* line 28, ../../src/scss/animations.scss */
+.twoChatsGrid {
+  grid-template-columns: 70% 30%;
+  grid-template-rows: 100% 0%; }
+
+/* line 31, ../../src/scss/animations.scss */
+.threeChatsGrid {
+  grid-template-columns: 70% 30%;
+  grid-template-rows: 50% 50%; }
+
 /*during the 2/3 window switch, change the grid-area*/
-/* line 32, ../../src/scss/animations.scss */
+/* line 36, ../../src/scss/animations.scss */
 .main_sidechat1_open {
   animation: MCsidechat1OPEN 0.75s infinite;
   /*animation-timing-function: ease-in;*/
@@ -626,7 +617,7 @@
   animation-timing-function: var(--bounceEase);
   animation-fill-mode: forwards; }
 
-/* line 36, ../../src/scss/animations.scss */
+/* line 40, ../../src/scss/animations.scss */
 .main_sidechat1_openExpanded {
   animation: MCsidechat1OPENexpanded 0.75s infinite;
   /*animation-timing-function: ease-in;*/
@@ -644,7 +635,7 @@
     grid-template-columns: 70% 30%; }
   100% {
     grid-template-columns: 50% 50%; } }
-/* line 56, ../../src/scss/animations.scss */
+/* line 60, ../../src/scss/animations.scss */
 .main_sidechat1_close {
   animation: MCsidechat1OPEN 0.75s infinite;
   /*animation-timing-function: ease-in;*/
@@ -653,7 +644,7 @@
   animation-fill-mode: forwards;
   animation-direction: reverse; }
 
-/* line 61, ../../src/scss/animations.scss */
+/* line 65, ../../src/scss/animations.scss */
 .main_sidechat1_closeExpanded {
   animation: MCsidechat1OPENexpanded 0.75s infinite;
   /*animation-timing-function: ease-in;*/
@@ -662,16 +653,31 @@
   animation-fill-mode: forwards;
   animation-direction: reverse; }
 
-/*@keyframes MCsidechat1OPEN{
-	0% {
-		grid-template-columns: 100% 0%;
-		grid-template-rows: 100% 0%;
-	}
-	100% {
-		grid-template-columns: 70% 30%;
-		grid-template-rows: 100% 0%;
-	}
-}*/
+/*---------SIDECHAT WINDOWS---------*/
+/* line 71, ../../src/scss/animations.scss */
+.sidechat1_sidechat2_open {
+  animation: sidechat1AndSidechat2OPEN 0.75s infinite;
+  /*animation-timing-function: ease-in;*/
+  animation-iteration-count: 1;
+  animation-timing-function: var(--bounceEase);
+  animation-fill-mode: forwards; }
+
+@keyframes sidechat1AndSidechat2OPEN {
+  0% {
+    grid-template-columns: inherit;
+    grid-template-rows: 100% 0%; }
+  100% {
+    grid-template-columns: inherit;
+    grid-template-rows: 50% 50%; } }
+/* line 85, ../../src/scss/animations.scss */
+.sidechat1_sidechat2_close {
+  animation: sidechat1AndSidechat2OPEN 0.75s infinite;
+  /*animation-timing-function: ease-in;*/
+  animation-iteration-count: 1;
+  animation-timing-function: var(--bounceEase);
+  animation-fill-mode: forwards;
+  animation-direction: reverse; }
+
 /*@import "signin-modal";
 @import "mainchat-message-area";
 @import "send-component";
