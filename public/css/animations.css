@@ -41,8 +41,18 @@
   grid-template-columns: 70% 30%;
   grid-template-rows: 50% 50%; }
 
+/* line 34, ../../src/scss/animations.scss */
+.twoChatsExpandedGrid {
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 100% 0%; }
+
+/* line 37, ../../src/scss/animations.scss */
+.threeChatsExpandedGrid {
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%; }
+
 /*during the 2/3 window switch, change the grid-area*/
-/* line 36, ../../src/scss/animations.scss */
+/* line 42, ../../src/scss/animations.scss */
 .main_sidechat1_open {
   animation: MCsidechat1OPEN 0.75s infinite;
   /*animation-timing-function: ease-in;*/
@@ -50,7 +60,7 @@
   animation-timing-function: var(--bounceEase);
   animation-fill-mode: forwards; }
 
-/* line 40, ../../src/scss/animations.scss */
+/* line 46, ../../src/scss/animations.scss */
 .main_sidechat1_openExpanded {
   animation: MCsidechat1OPENexpanded 0.75s infinite;
   /*animation-timing-function: ease-in;*/
@@ -68,7 +78,7 @@
     grid-template-columns: 70% 30%; }
   100% {
     grid-template-columns: 50% 50%; } }
-/* line 60, ../../src/scss/animations.scss */
+/* line 66, ../../src/scss/animations.scss */
 .main_sidechat1_close {
   animation: MCsidechat1OPEN 0.75s infinite;
   /*animation-timing-function: ease-in;*/
@@ -77,7 +87,7 @@
   animation-fill-mode: forwards;
   animation-direction: reverse; }
 
-/* line 65, ../../src/scss/animations.scss */
+/* line 71, ../../src/scss/animations.scss */
 .main_sidechat1_closeExpanded {
   animation: MCsidechat1OPENexpanded 0.75s infinite;
   /*animation-timing-function: ease-in;*/
@@ -87,7 +97,7 @@
   animation-direction: reverse; }
 
 /*---------SIDECHAT WINDOWS---------*/
-/* line 71, ../../src/scss/animations.scss */
+/* line 77, ../../src/scss/animations.scss */
 .sidechat1_sidechat2_open {
   animation: sidechat1AndSidechat2OPEN 0.75s infinite;
   /*animation-timing-function: ease-in;*/
@@ -95,14 +105,58 @@
   animation-timing-function: var(--bounceEase);
   animation-fill-mode: forwards; }
 
+/* line 81, ../../src/scss/animations.scss */
+.sidechat1_sidechat2_openExpanded {
+  animation: sidechat1AndSidechat2OPENexpanded 0.75s infinite;
+  /*animation-timing-function: ease-in;*/
+  animation-iteration-count: 1;
+  animation-timing-function: var(--bounceEase); }
+
 @keyframes sidechat1AndSidechat2OPEN {
   0% {
-    grid-template-columns: inherit;
+    grid-template-columns: 70% 30%;
     grid-template-rows: 100% 0%; }
   100% {
-    grid-template-columns: inherit;
+    grid-template-columns: 70% 30%;
     grid-template-rows: 50% 50%; } }
-/* line 85, ../../src/scss/animations.scss */
+@keyframes sidechat1AndSidechat2OPENexpanded {
+  0% {
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100% 0%; }
+  100% {
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%; } }
+@keyframes sidechat2REPLACESidechat1 {
+  0% {
+    grid-template-columns: 70% 30%;
+    grid-template-rows: 50% 50%; }
+  100% {
+    grid-template-columns: 70% 30%;
+    grid-template-rows: 100% 0%; } }
+@keyframes sidechat2REPLACESidechat1Expanded {
+  0% {
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%; }
+  100% {
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100% 0%; } }
+/* line 124, ../../src/scss/animations.scss */
+.sidechat2_replace_sidechat1 {
+  animation: sidechat2REPLACESidechat1 0.75s infinite;
+  /*animation-timing-function: ease-in;*/
+  animation-iteration-count: 1;
+  animation-timing-function: var(--bounceEase);
+  animation-fill-mode: forwards; }
+
+/* line 128, ../../src/scss/animations.scss */
+.sidechat2_replace_sidechat1Expanded {
+  animation: sidechat2REPLACESidechat1Expanded 0.75s infinite;
+  /*animation-timing-function: ease-in;*/
+  animation-iteration-count: 1;
+  animation-timing-function: var(--bounceEase);
+  animation-fill-mode: forwards; }
+
+/* line 132, ../../src/scss/animations.scss */
 .sidechat1_sidechat2_close {
   animation: sidechat1AndSidechat2OPEN 0.75s infinite;
   /*animation-timing-function: ease-in;*/
@@ -110,3 +164,18 @@
   animation-timing-function: var(--bounceEase);
   animation-fill-mode: forwards;
   animation-direction: reverse; }
+
+/* line 137, ../../src/scss/animations.scss */
+.sidechat1_sidechat2_closeExpanded {
+  animation: sidechat1AndSidechat2OPENexpanded 0.75s infinite;
+  /*animation-timing-function: ease-in;*/
+  animation-iteration-count: 1;
+  animation-timing-function: var(--bounceEase);
+  animation-fill-mode: forwards;
+  animation-direction: reverse; }
+
+/*.defaultGrid{
+.twoChatsGrid
+.threeChatsGrid
+.twoChatsExpandedGrid
+.threeChatsExpandedGrid*/

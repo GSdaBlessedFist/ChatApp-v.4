@@ -31,6 +31,12 @@
 .threeChatsGrid{
 	@include threeChatsGrid;
 }
+.twoChatsExpandedGrid{
+	@include expandedTwoChatsGrid;
+}
+.threeChatsExpandedGrid{
+	@include expandedThreeChatsGrid;
+}
 
 /*during the 2/3 window switch, change the grid-area*/
 .main_sidechat1_open{
@@ -72,18 +78,70 @@
 	@include anime(sidechat1AndSidechat2OPEN,.75s,1);
 	animation-fill-mode: forwards;
 }
+.sidechat1_sidechat2_openExpanded{
+	@include anime(sidechat1AndSidechat2OPENexpanded,.75s,1);
+}
 @keyframes sidechat1AndSidechat2OPEN{
 	0% {
-		grid-template-columns: inherit;
+		grid-template-columns: 70% 30%;
 		grid-template-rows: 100% 0%;
 	}
 	100% {
-		grid-template-columns: inherit;
+		grid-template-columns: 70% 30%;
 		grid-template-rows: 50% 50%;
 	}
+}
+@keyframes sidechat1AndSidechat2OPENexpanded{
+	0% {
+		grid-template-columns: 50% 50%;
+		grid-template-rows: 100% 0%;
+	}
+	100% {
+		grid-template-columns: 50% 50%;
+		grid-template-rows: 50% 50%;
+	}
+}
+@keyframes sidechat2REPLACESidechat1{
+	0% {
+		grid-template-columns: 70% 30%;
+		grid-template-rows: 50% 50%;
+	}
+	100% {
+		grid-template-columns: 70% 30%;
+		grid-template-rows: 100% 0%;
+	}
+}
+@keyframes sidechat2REPLACESidechat1Expanded{
+	0% {
+		grid-template-columns: 50% 50%;
+		grid-template-rows: 50% 50%;
+	}
+	100% {
+		grid-template-columns: 50% 50%;
+		grid-template-rows: 100% 0%;
+	}
+}
+.sidechat2_replace_sidechat1{
+	@include anime(sidechat2REPLACESidechat1,.75s,1);
+	animation-fill-mode: forwards;
+}
+.sidechat2_replace_sidechat1Expanded{
+	@include anime(sidechat2REPLACESidechat1Expanded,.75s,1);
+	animation-fill-mode: forwards;
 }
 .sidechat1_sidechat2_close{
 	@include anime(sidechat1AndSidechat2OPEN,.75s,1);
 	animation-fill-mode: forwards;
 	animation-direction: reverse;
 }
+.sidechat1_sidechat2_closeExpanded{
+	@include anime(sidechat1AndSidechat2OPENexpanded,.75s,1);
+	animation-fill-mode: forwards;
+	animation-direction: reverse;
+}
+
+/*.defaultGrid{
+.twoChatsGrid
+.threeChatsGrid
+.twoChatsExpandedGrid
+.threeChatsExpandedGrid*/

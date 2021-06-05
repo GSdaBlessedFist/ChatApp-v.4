@@ -42,17 +42,28 @@ socket.on('chat', (data) => {
     var links = Array.from(document.getElementsByClassName("messageObj--screenname"));
     links.forEach((link) => {
         link.addEventListener("click", function(e) {
-            mainchatExpand.style.display= "flex";
+            mainchatExpand.style.display = "flex";
             let receiver = link.innerText;
             e.preventDefault();
             console.log(receiver);
 
             // if sidechat1 is already open then add .sidechat1_sidechat2_open
-            if (chatArea.classList.contains('main_sidechat1_open')) {
+            if (chatArea.classList.contains('twoChatsGrid')) {
                 chatArea.classList.add('sidechat1_sidechat2_open')
+                setTimeout(function() {
+                    chatArea.classList.replace('sidechat1_sidechat2_open', 'threeChatsGrid');
+                }, 1000)
+            } else if (chatArea.classList.contains('twoChatsExpandedGrid')) {
+                chatArea.classList.add('sidechat1_sidechat2_openExpanded')
+                setTimeout(function() {
+                    chatArea.classList.replace('sidechat1_sidechat2_openExpanded', 'threeChatsExpandedGrid');
+                }, 1000)
             }
             chatArea.classList.add('main_sidechat1_open');
-            // socket.emit('getid')
+            setTimeout(function() {
+                    chatArea.classList.replace('main_sidechat1_open', 'twoChatsGrid');
+                }, 1000)
+                // socket.emit('getid')
             socket.emit('message-invite', {
                 sender: screenname,
                 senderid: socket.id,
@@ -63,32 +74,36 @@ socket.on('chat', (data) => {
 })
 const sidechatExpand = document.getElementById("sidechat-expand");
 sidechatExpand.addEventListener('click', function() {
-    chatArea.classList.replace('main_sidechat1_open', 'main_sidechat1_openExpanded');
+    chatArea.classList.replace('twoChatsGrid', 'main_sidechat1_openExpanded');
+    setTimeout(function() {
+        chatArea.classList.replace('main_sidechat1_openExpanded', 'twoChatsExpandedGrid');
+    }, 1000)
 })
 mainchatExpand.addEventListener('click', function() {
-    if (chatArea.classList.contains('main_sidechat1_openExpanded')) {
-        chatArea.classList.replace('main_sidechat1_openExpanded', 'main_sidechat1_closeExpanded');
-
-    } else if (chatArea.classList.contains('main_sidechat1_closeExpanded')) {
-        chatArea.classList.replace('main_sidechat1_closeExpanded', "main_sidechat1_close");
+    if (chatArea.classList.contains('twoChatsExpandedGrid')) {
+        chatArea.classList.replace('twoChatsExpandedGrid', 'main_sidechat1_closeExpanded');
         setTimeout(function() {
-                chatArea.classList.remove('main_sidechat1_close')
-            }, lazyFadeOutTime)
-    } else {
-        if (!chatArea.classList.contains('main_sidechat1_openExpanded') && !chatArea.classList.contains('main_sidechat1_close')) {
-            chatArea.classList.add('defaultGrid');
-        }
+            chatArea.classList.replace('main_sidechat1_closeExpanded', twoChatsGrid)
+        }, 1000);
+    }else if (chatArea.classList.contains('threeChatsExpandedGrid')){
+        chatArea.classList.replace('threeChatsExpandedGrid', 'sidechat1_sidechat2_closeExpanded');
+        setTimeout(function() {
+            chatArea.classList.replace('main_sidechat1_closeExpanded', threeChatsGrid);
+        }, 1000);
+    }else{
+        chatArea.className="chat-area defaultGrid";
     }
-})
+});
 
 
 
-// if (chatArea.classList.contains('main_sidechat1_openExpanded')) {
-//         chatArea.classList.replace('main_sidechat1_openExpanded', 'main_sidechat1_closeExpanded');
-//     } else {
-//         chatArea.classList.replace('main_sidechat1_closeExpanded', "main_sidechat1_close");
-//         setTimeout(function() {
-//             chatArea.classList.remove('main_sidechat1_close')
-//         }, quickFadeOutTime)
-//             // add else if
-//     }
+
+            // if (chatArea.classList.contains('main_sidechat1_openExpanded')) {
+            //         chatArea.classList.replace('main_sidechat1_openExpanded', 'main_sidechat1_closeExpanded');
+            //     } else {
+            //         chatArea.classList.replace('main_sidechat1_closeExpanded', "main_sidechat1_close");
+            //         setTimeout(function() {
+            //             chatArea.classList.remove('main_sidechat1_close')
+            //         }, quickFadeOutTime)
+            //             // add else if
+            //     }
