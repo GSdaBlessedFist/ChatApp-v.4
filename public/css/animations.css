@@ -110,7 +110,8 @@
   animation: sidechat1AndSidechat2OPENexpanded 0.75s infinite;
   /*animation-timing-function: ease-in;*/
   animation-iteration-count: 1;
-  animation-timing-function: var(--bounceEase); }
+  animation-timing-function: var(--bounceEase);
+  animation-fill-mode: forwards; }
 
 @keyframes sidechat1AndSidechat2OPEN {
   0% {
