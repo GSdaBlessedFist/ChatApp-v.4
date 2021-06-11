@@ -44,12 +44,15 @@ io.on('connection', function(socket) {
    socket.on('add-client',(data)=>{
         currentUsers.push(data);
         console.log(chalk.bgGreen.black.bold("Introducing..."+data.screenname))
-        console.log(currentUsers)
+        console.log(currentUsers);
+
+
+
         socket.emit('number-assignment',clientNum);
     })
 
     socket.on('message.chat',(data)=>{//<---
-        console.log(data)
+        // console.log(data)
         io.sockets.emit('chat',{
             socketInfo :socket.id,
             screenname: data.screenname,
@@ -58,8 +61,37 @@ io.on('connection', function(socket) {
         });
     })
     socket.on('message-invite',(data)=>{
-        io.sockets.emit("chat-with",{
-            receiver:data.receiver
+        //.sender,.senderid,.receiver
+        console.log(`${data.sender} is INVITING ${data.receiver}`);
+        console.log(data)
+        console.log("This one:"+currentUsers[0].socketinfo)
+        function matchUserToSocket(){
+            let targetUser = data.receiver;
+            let found = currentUsers.find((user)=>{
+                return user.socketinfo === targetUser;
+            })
+            console.log(found);
+        }
+        matchUserToSocket()  //<----
+        
+        
+        // io.to(matchUserToSocket().socketInfo).emit('invite',data);
+        // io.to(data.socketInfo).emit('invite',data);
+    })
+        
+    socket.on('invite-acceptance',(data)=>{
+        console.log(currentUsers)
+        console.log(`${data.receiverOfInvite} has accepted a sidechat invite from ${data.senderOfInvite}` )
+        function matchUserToSocket(){
+            let targetUser = data.senderOfInvite;
+            let found = currentUsers.find((user)=>{
+                return user.screenname === targetUser;
+            })
+            return found;
+        }
+        io.to(matchUserToSocket().socketinfo).emit('accept-join',{
+            receiverOfInvite: data.receiverOfInvite,
+            senderOfInvite: data.senderOfInvite
         })
     })
 

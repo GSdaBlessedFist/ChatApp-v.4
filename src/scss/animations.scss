@@ -80,6 +80,8 @@
 }
 .sidechat1_sidechat2_openExpanded{
 	@include anime(sidechat1AndSidechat2OPENexpanded,.75s,1);
+	animation-fill-mode: forwards;
+
 }
 @keyframes sidechat1AndSidechat2OPEN{
 	0% {
@@ -93,11 +95,21 @@
 }
 @keyframes sidechat1AndSidechat2OPENexpanded{
 	0% {
-		grid-template-columns: 50% 50%;
+		grid-template-columns: 50% 50% ;
 		grid-template-rows: 100% 0%;
 	}
 	100% {
-		grid-template-columns: 50% 50%;
+		grid-template-columns: 50% 50% ;
+		grid-template-rows: 50% 50%;
+	}
+}
+@keyframes sidechat1AndSidechat2CLOSEexpanded{
+	0% {
+		grid-template-columns: 50% 50% ;
+		grid-template-rows: 100% 0%;
+	}
+	100% {
+		grid-template-columns: 70% 30% ;
 		grid-template-rows: 50% 50%;
 	}
 }
@@ -128,6 +140,7 @@
 .sidechat2_replace_sidechat1Expanded{
 	@include anime(sidechat2REPLACESidechat1Expanded,.75s,1);
 	animation-fill-mode: forwards;
+	animation-timing-function: ease-out;
 }
 .sidechat1_sidechat2_close{
 	@include anime(sidechat1AndSidechat2OPEN,.75s,1);
@@ -135,9 +148,9 @@
 	animation-direction: reverse;
 }
 .sidechat1_sidechat2_closeExpanded{
-	@include anime(sidechat1AndSidechat2OPENexpanded,.75s,1);
+	@include anime(sidechat1AndSidechat2CLOSEexpanded,.75s,1);
 	animation-fill-mode: forwards;
-	animation-direction: reverse;
+	/*animation-direction: reverse;*/
 }
 
 /*.defaultGrid{

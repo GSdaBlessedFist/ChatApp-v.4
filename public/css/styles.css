@@ -677,7 +677,8 @@
   animation: sidechat1AndSidechat2OPENexpanded 0.75s infinite;
   /*animation-timing-function: ease-in;*/
   animation-iteration-count: 1;
-  animation-timing-function: var(--bounceEase); }
+  animation-timing-function: var(--bounceEase);
+  animation-fill-mode: forwards; }
 
 @keyframes sidechat1AndSidechat2OPEN {
   0% {
@@ -693,6 +694,13 @@
   100% {
     grid-template-columns: 50% 50%;
     grid-template-rows: 50% 50%; } }
+@keyframes sidechat1AndSidechat2CLOSEexpanded {
+  0% {
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100% 0%; }
+  100% {
+    grid-template-columns: 70% 30%;
+    grid-template-rows: 50% 50%; } }
 @keyframes sidechat2REPLACESidechat1 {
   0% {
     grid-template-columns: 70% 30%;
@@ -707,7 +715,7 @@
   100% {
     grid-template-columns: 50% 50%;
     grid-template-rows: 100% 0%; } }
-/* line 124, ../../src/scss/animations.scss */
+/* line 136, ../../src/scss/animations.scss */
 .sidechat2_replace_sidechat1 {
   animation: sidechat2REPLACESidechat1 0.75s infinite;
   /*animation-timing-function: ease-in;*/
@@ -715,15 +723,16 @@
   animation-timing-function: var(--bounceEase);
   animation-fill-mode: forwards; }
 
-/* line 128, ../../src/scss/animations.scss */
+/* line 140, ../../src/scss/animations.scss */
 .sidechat2_replace_sidechat1Expanded {
   animation: sidechat2REPLACESidechat1Expanded 0.75s infinite;
   /*animation-timing-function: ease-in;*/
   animation-iteration-count: 1;
   animation-timing-function: var(--bounceEase);
-  animation-fill-mode: forwards; }
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out; }
 
-/* line 132, ../../src/scss/animations.scss */
+/* line 145, ../../src/scss/animations.scss */
 .sidechat1_sidechat2_close {
   animation: sidechat1AndSidechat2OPEN 0.75s infinite;
   /*animation-timing-function: ease-in;*/
@@ -732,14 +741,14 @@
   animation-fill-mode: forwards;
   animation-direction: reverse; }
 
-/* line 137, ../../src/scss/animations.scss */
+/* line 150, ../../src/scss/animations.scss */
 .sidechat1_sidechat2_closeExpanded {
-  animation: sidechat1AndSidechat2OPENexpanded 0.75s infinite;
+  animation: sidechat1AndSidechat2CLOSEexpanded 0.75s infinite;
   /*animation-timing-function: ease-in;*/
   animation-iteration-count: 1;
   animation-timing-function: var(--bounceEase);
   animation-fill-mode: forwards;
-  animation-direction: reverse; }
+  /*animation-direction: reverse;*/ }
 
 /*.defaultGrid{
 .twoChatsGrid

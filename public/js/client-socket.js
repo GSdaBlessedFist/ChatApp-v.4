@@ -13,7 +13,6 @@ const chatArea = document.getElementById("chat-area"),
     mainchatSendButton = document.getElementById("mainchat-sendButton"),
     mainchatInput = document.getElementById("mainchat-input"),
     mainchatMessageArea = document.getElementById("mainchat-messageArea");
-
 mainchatExpand.style.display = "none";
 mainchatMessageArea.innerHTML = "";
 mainchatSendButton.addEventListener("click", (e) => {
@@ -40,17 +39,31 @@ socket.on('chat', (data) => {
         </div>
     `;
     var links = Array.from(document.getElementsByClassName("messageObj--screenname"));
-
-    //////////////////////////////////////////////////////
     //////////////////////////////////////////////////////
     //////////////////////////////////////////////////////
 
+
+
+
+
+    //////////////////////////////////////////////////////
     links.forEach((link) => {
         link.addEventListener("click", function(e) {
             mainchatExpand.style.display = "flex";
             let receiver = link.innerText;
             e.preventDefault();
-            console.log(receiver);
+            console.log("clicked screenname link")
+            console.log(`receiver: ${receiver}`);
+            let tag = socket.id;
+
+
+            socket.emit('message-invite',{
+                sender: screenname,
+                receiver : link.innerText,
+                socketInfo:tag
+            })
+
+            
 
             // if sidechat1 is already open then add .sidechat1_sidechat2_open
             if (chatArea.classList.contains('defaultGrid')) {
@@ -78,40 +91,32 @@ socket.on('chat', (data) => {
                     return;
                 }
             }
-
-
-            // socket.emit('getid')
-            socket.emit('message-invite', {
-                sender: screenname,
-                senderid: socket.id,
-                receiver
-            })
+            
         })
-
     })
+
+    socket.on('invite', (data) => {
+                var senderOfInvite = data.sender;
+                var receiverOfInvite = data.receiver;
+
+                console.log(`${senderOfInvite} would like to chat with you.`);
+            })
 })
-
-
 //////////////////////////////////////////////////////        
 //////////////////////////////////////////////////////
 //////////////////////////////////////////////////////
-
 const sidechatExpand = document.getElementById("sidechat-expand");
 sidechatExpand.addEventListener('click', function() {
-
     // if (chatArea.classList.contains('threeChatsGrid')) {
     //     chatArea.classList.replace('threeChatsGrid', 'sidechat1_sidechat2_openExpanded');
     //     setTimeout(function() {
     //         chatArea.classList.replace('sidechat1_sidechat2_openExpanded', 'threeChatsExpandedGrid');
     //     }, 1000)
     // }
-
     // chatArea.classList.replace('twoChatsGrid', 'main_sidechat1_openExpanded');
     // setTimeout(function() {
     //     chatArea.classList.replace('main_sidechat1_openExpanded', 'twoChatsExpandedGrid');
     // }, 1000)
-
-
     if (chatArea.classList.contains('threeChatsGrid')) {
         chatArea.classList.replace('threeChatsGrid', 'sidechat1_sidechat2_openExpanded');
         setTimeout(function() {
@@ -122,13 +127,7 @@ sidechatExpand.addEventListener('click', function() {
         setTimeout(function() {
           chatArea.classList.replace('main_sidechat1_openExpanded', 'twoChatsExpandedGrid');
       }, 1000)
-
-    }
-
-    
-
-
-
+    }else {return}
 })
 mainchatExpand.addEventListener('click', function() {
     if (chatArea.classList.contains('twoChatsExpandedGrid')) {
@@ -153,10 +152,6 @@ mainchatExpand.addEventListener('click', function() {
         }, 1000);
     }
 });
-
-
-
-
 // if (chatArea.classList.contains('main_sidechat1_openExpanded')) {
 //         chatArea.classList.replace('main_sidechat1_openExpanded', 'main_sidechat1_closeExpanded');
 //     } else {

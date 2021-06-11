@@ -6,6 +6,7 @@ p("start")
 const url = "http://localhost:3400";
 // const socket = io.connect(url);
 const socket = io();
+
 var clientNumber;
 
 
