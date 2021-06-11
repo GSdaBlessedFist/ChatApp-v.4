@@ -6,7 +6,7 @@ p("start")
 const url = "http://localhost:3400";
 // const socket = io.connect(url);
 const socket = io();
-
+localStorage.setItem('screenname',"");
 var clientNumber;
 
 
@@ -51,6 +51,8 @@ document.body.addEventListener("keyup", (e) => {
             signinModal.classList.add("x");
         },lazyFadeOutTime)
     }  
+    // document.title += " - "+screenname; <--THIS ONE FINAL
+    document.title = screenname +" : "+socket.id; //<--testING
     document.getElementById("mainchat-input").autofocus=true;
     
 })

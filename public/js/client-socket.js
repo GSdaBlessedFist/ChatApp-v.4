@@ -33,7 +33,7 @@ mainchatSendButton.addEventListener("click", (e) => {
 socket.on('chat', (data) => {
     mainchatMessageArea.innerHTML += `
         <div class="messageObj ${socket.id==data.socketInfo?"":"others-message"}">
-             <a href="#" class="messageObj--screenname"><div >${data.screenname}:</div></a>
+             <a href="#" class="messageObj--screenname"><div >${data.screenname}</div></a>
              <div class="messageObj--message">${data.message}</div>
              <div class="messageObj--image x">${data.image}</div>
         </div>
@@ -54,13 +54,13 @@ socket.on('chat', (data) => {
             e.preventDefault();
             console.log("clicked screenname link")
             console.log(`receiver: ${receiver}`);
-            let tag = socket.id;
+            
 
 
             socket.emit('message-invite',{
                 sender: screenname,
-                receiver : link.innerText,
-                socketInfo:tag
+                sendersocketinfo: socket.id,
+                receiver : link.innerText
             })
 
             
