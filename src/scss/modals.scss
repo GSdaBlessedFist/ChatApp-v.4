@@ -74,17 +74,33 @@
 		grid-area: invite;
 		@include flexCenter;
 		@include siteFont;
-		padding:  2px;
-		font-size:  clamp(3vh,3.5vh,3.75vh);
+		padding:  20px;
+		font-size:  clamp(3.25vh,3.5vh,3.75vh);
 		border-bottom:  2px rgba(255,255,255,.75) solid;
 	}
 	&_sidechat-button{
-		width: 15%;
-		height: 25px;
-		@include LINE(2px);
+		width: 100%;
+		height: 100px;
+		
+		@include LINE(1px);
+		margin:  auto;
 		@at-root{
-			.sidechat-invite-button--yes{}
-			.sidechat-invite-button--no{}
+			#yes{
+				@include flexCenter;
+				width: 100%;
+				height: clamp(15px,50px,50px);
+				@include buttonize;
+				padding: 5px;
+				@include LINE(1px);
+			}
+			#no{
+				@include flexCenter;
+				width: 100%;
+				height: clamp(15px,50px,50px);
+				@include buttonize;
+				padding: 5px;
+				@include LINE(1px);
+			}
 		}
 	}
 }

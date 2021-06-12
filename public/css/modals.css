@@ -111,12 +111,46 @@
     justify-content: center;
     align-items: center;
     font-family: "Montserrat", sans-serif;
-    padding: 2px;
-    font-size: clamp(3vh, 3.5vh, 3.75vh);
+    padding: 20px;
+    font-size: clamp(3.25vh, 3.5vh, 3.75vh);
     border-bottom: 2px rgba(255, 255, 255, 0.75) solid; }
   /* line 81, ../../src/scss/modals.scss */
   .invite-modal-message-box_sidechat-button {
-    width: 15%;
-    height: 25px;
+    width: 100%;
+    height: 100px;
     background: #111;
-    border: 2px white solid; }
+    border: 1px white solid;
+    margin: auto; }
+    /* line 88, ../../src/scss/modals.scss */
+    #yes {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: clamp(15px, 50px, 50px);
+      text-decoration: none;
+      font-family: "Montserrat", sans-serif;
+      transition: all var(--quick);
+      padding: 5px;
+      background: #111;
+      border: 1px white solid; }
+      /* line 67, ../../src/scss/variables.scss */
+      #yes:hover {
+        background: var(--c1); }
+
+    /* line 96, ../../src/scss/modals.scss */
+    #no {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: clamp(15px, 50px, 50px);
+      text-decoration: none;
+      font-family: "Montserrat", sans-serif;
+      transition: all var(--quick);
+      padding: 5px;
+      background: #111;
+      border: 1px white solid; }
+      /* line 67, ../../src/scss/variables.scss */
+      #no:hover {
+        background: var(--c1); }
