@@ -34,8 +34,9 @@ var clientNum = 0;
 var currentUsers = [];
 //Whenever someone connects this gets executed
 io.on('connection', function(socket) {
-   clientNum++;
+   
    socket.on('add-client',(data)=>{
+        clientNum++;
         console.log('currentUsers: '+clientNum);
         currentUsers.push(data);
         console.log(chalk.bgGreen.black.bold("Introducing..."+data.screenname))

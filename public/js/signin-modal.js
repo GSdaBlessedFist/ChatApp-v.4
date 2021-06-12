@@ -6,7 +6,7 @@ p("start")
 const url = "http://localhost:3400";
 // const socket = io.connect(url);
 const socket = io();
-
+document.title += "" ;
 var clientNumber;
 
 
@@ -37,8 +37,20 @@ const noSpaces = function(str) {
     let x = str.replace(/ /g, "_").trim();
     return x;
 }
+// signinModalMessageBoxInput.placeholder = randomNameSelection();
+// const screenname = noSpaces(signinModalMessageBoxInput.value) || signinModalMessageBoxInput.placeholder;
+
 signinModalMessageBoxInput.placeholder = randomNameSelection();
-const screenname = noSpaces(signinModalMessageBoxInput.value) || signinModalMessageBoxInput.placeholder;
+var screenname = signinModalMessageBoxInput.placeholder;
+
+signinModalMessageBoxInput.addEventListener('change',(e)=>{
+    e.preventDefault();
+    screenname = noSpaces(e.target.value)
+    return null;
+});
+
+
+
 
 //////////////////////// COMMs ////////////////////////
 document.body.addEventListener("keyup", (e) => {
