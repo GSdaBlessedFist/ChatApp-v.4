@@ -55,7 +55,7 @@ io.on('connection', function(socket) {
         //.sender,.senderid,.receiver
         console.log(data);
         console.log(`${data.sender} is INVITING ${data.receiver}`);
-        console.log("This is the SENDERs:"+currentUsers[0].socketinfo)
+        console.log("This is the SENDERs:"+ data.sendersocketinfo)
         const targetUser = function(){
             var theUser = currentUsers.find((user)=>{
                 return user.screenname === data.receiver;

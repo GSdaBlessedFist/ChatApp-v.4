@@ -2,6 +2,9 @@ import {
     socket,
     url,
     styles,
+    inviteModalScreen,
+    inviteModalMessageBox,
+    inviteModalMessageBoxTitle,
     noSpaces,
     screenname,
     lazyFadeOutTime,
@@ -100,6 +103,12 @@ socket.on('chat', (data) => {
                 var receiverOfInvite = data.receiver;
 
                 console.log(`${senderOfInvite} would like to chat with you.`);
+                // gsap.to(inviteModalMessageBox,{opacity:1,duration:lazyFadeOutTime});
+                gsap.set(inviteModalScreen,{display:"block"})
+                gsap.set(inviteModalMessageBox,{display:"block"})
+                inviteModalMessageBoxTitle.innerText  = `Would you like to chat with ${data.sender}?`
+                // gsap.to(inviteModalScreen,{opacity:1,duration:lazyFadeOutTime,delay:.45});
+                
             })
 })
 //////////////////////////////////////////////////////        

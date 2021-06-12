@@ -4,15 +4,18 @@
 .signin-modal{
 	opacity: 1;
 }
-.modal-screen{
+@mixin modal{
 	display: block;
 	position: absolute;
 	top: var(--navbarHeight);
 	left:0;
 	width: 100%;
 	height: 82.5vh;
-	@include LINE(2px);
 	opacity: .75;
+}
+.modal-screen,#invite-modal-screen{
+	@include modal;
+	@include LINE(2px);
 }
 .signin-modal-message-box{
 	position: absolute;
@@ -24,6 +27,7 @@
 	top:  35%;
 	left: 30%;
 	text-align: center;
+	border-radius:  var(--borderRadius);
 	@include LINE(2px);
 	&--title{
 		grid-area: title;
@@ -50,5 +54,37 @@
 		border-top: 2px rgba(255,255,255,.75) solid;
 		padding: 5px;
 		@include siteFont;
+	}
+}
+
+.invite-modal-message-box{
+	position: absolute;
+	@include grid(40%,200px,"1fr","50% 50%");
+	grid-template-areas: "invite"
+						 "buttons"
+						 ;
+	padding: 5px;
+	top:  35%;
+	left: 30%;
+	text-align: center;
+	border-radius: var(--borderRadius);
+	@include LINE(2px);
+	
+	&_title{
+		grid-area: invite;
+		@include flexCenter;
+		@include siteFont;
+		padding:  2px;
+		font-size:  clamp(3vh,3.5vh,3.75vh);
+		border-bottom:  2px rgba(255,255,255,.75) solid;
+	}
+	&_sidechat-button{
+		width: 15%;
+		height: 25px;
+		@include LINE(2px);
+		@at-root{
+			.sidechat-invite-button--yes{}
+			.sidechat-invite-button--no{}
+		}
 	}
 }

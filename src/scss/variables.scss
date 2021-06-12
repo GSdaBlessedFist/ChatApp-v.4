@@ -5,10 +5,12 @@
 	--c2: #557675;
 	--c3: #223344;
   /*Timings*/
-  --quick: .5s;
-  --lazy: .95s;
+    --quick: .5s;
+    --lazy: .95s;
   /*ease timing*/
     --bounceEase: cubic-bezier(0.175, 0.985, 0.5, 1.25);
+  /*misc settings*/
+    --borderRadius: 10px;
 }
 /*HELPERS*/
 .r {

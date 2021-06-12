@@ -6,14 +6,20 @@ p("start")
 const url = "http://localhost:3400";
 // const socket = io.connect(url);
 const socket = io();
-localStorage.setItem('screenname',"");
+
 var clientNumber;
 
 
 const signinModal= document.getElementById("signin-modal"),
       siginModalScreen= document.getElementById("sigin-modal-screen"),
 	  signinModalMessageBox= document.getElementById("signin-modal-message-box"),
-	  signinModalMessageBoxInput= document.getElementById("signin-modal-message-box--input");	  
+	  signinModalMessageBoxInput= document.getElementById("signin-modal-message-box--input"),	  
+      inviteModalScreen= document.getElementById("invite-modal-screen"),
+      inviteModalMessageBox= document.getElementById("invite-modal-message-box"),
+      inviteModalMessageBoxTitle= document.getElementById("invite-modal-message-box_title");
+inviteModalScreen.style.display="none";
+inviteModalMessageBox.style.display="none";
+
 
 const styles = getComputedStyle(document.documentElement);
 const lazyFadeOutTime = styles.getPropertyValue('--lazy').slice(0, -1);
@@ -62,6 +68,9 @@ export {
 	url,
 	socket,
 	styles,
+    inviteModalScreen,
+    inviteModalMessageBox,
+    inviteModalMessageBoxTitle,
     noSpaces,
     screenname,
     lazyFadeOutTime,

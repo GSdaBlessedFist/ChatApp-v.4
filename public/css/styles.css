@@ -12,14 +12,16 @@
   --quick: .5s;
   --lazy: .95s;
   /*ease timing*/
-  --bounceEase: cubic-bezier(0.175, 0.985, 0.5, 1.25); }
+  --bounceEase: cubic-bezier(0.175, 0.985, 0.5, 1.25);
+  /*misc settings*/
+  --borderRadius: 10px; }
 
 /*HELPERS*/
-/* line 14, ../../src/scss/variables.scss */
+/* line 16, ../../src/scss/variables.scss */
 .r {
   border: 5px red solid; }
 
-/* line 17, ../../src/scss/variables.scss */
+/* line 19, ../../src/scss/variables.scss */
 .x {
   display: none; }
 
@@ -100,19 +102,19 @@
 .signin-modal {
   opacity: 1; }
 
-/* line 7, ../../src/scss/modals.scss */
-.modal-screen {
+/* line 16, ../../src/scss/modals.scss */
+.modal-screen, #invite-modal-screen {
   display: block;
   position: absolute;
   top: var(--navbarHeight);
   left: 0;
   width: 100%;
   height: 82.5vh;
+  opacity: .75;
   background: #111;
-  border: 2px white solid;
-  opacity: .75; }
+  border: 2px white solid; }
 
-/* line 17, ../../src/scss/modals.scss */
+/* line 20, ../../src/scss/modals.scss */
 .signin-modal-message-box {
   position: absolute;
   display: grid;
@@ -125,9 +127,10 @@
   top: 35%;
   left: 30%;
   text-align: center;
+  border-radius: var(--borderRadius);
   background: #111;
   border: 2px white solid; }
-  /* line 28, ../../src/scss/modals.scss */
+  /* line 32, ../../src/scss/modals.scss */
   .signin-modal-message-box--title {
     grid-area: title;
     display: flex;
@@ -137,7 +140,7 @@
     padding: 2px;
     font-size: clamp(3vh, 3.5vh, 3.75vh);
     border-bottom: 2px rgba(255, 255, 255, 0.75) solid; }
-  /* line 36, ../../src/scss/modals.scss */
+  /* line 40, ../../src/scss/modals.scss */
   .signin-modal-message-box--input {
     grid-area: input;
     position: relative;
@@ -149,12 +152,45 @@
     text-align: center;
     color: var(--c2);
     font-family: "Merienda", cursive; }
-  /* line 48, ../../src/scss/modals.scss */
+  /* line 52, ../../src/scss/modals.scss */
   .signin-modal-message-box--space {
     grid-area: space;
     border-top: 2px rgba(255, 255, 255, 0.75) solid;
     padding: 5px;
     font-family: "Montserrat", sans-serif; }
+
+/* line 60, ../../src/scss/modals.scss */
+.invite-modal-message-box {
+  position: absolute;
+  display: grid;
+  width: 40%;
+  height: 200px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 50% 50%;
+  grid-template-areas: "invite" "buttons";
+  padding: 5px;
+  top: 35%;
+  left: 30%;
+  text-align: center;
+  border-radius: var(--borderRadius);
+  background: #111;
+  border: 2px white solid; }
+  /* line 73, ../../src/scss/modals.scss */
+  .invite-modal-message-box_title {
+    grid-area: invite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Montserrat", sans-serif;
+    padding: 2px;
+    font-size: clamp(3vh, 3.5vh, 3.75vh);
+    border-bottom: 2px rgba(255, 255, 255, 0.75) solid; }
+  /* line 81, ../../src/scss/modals.scss */
+  .invite-modal-message-box_sidechat-button {
+    width: 15%;
+    height: 25px;
+    background: #111;
+    border: 2px white solid; }
 
 /* line 4, ../../src/scss/chatarea.scss */
 .chat-area {
@@ -251,7 +287,7 @@
       transition: all var(--quick);
       background: #111;
       border: 1px white solid; }
-      /* line 65, ../../src/scss/variables.scss */
+      /* line 67, ../../src/scss/variables.scss */
       .mainchat-title_hidden-button:hover {
         background: var(--c1); }
     /* line 32, ../../src/scss/mainchat-grid.scss */
@@ -273,7 +309,7 @@
       transition: all var(--quick);
       background: #111;
       border: 1px white solid; }
-      /* line 65, ../../src/scss/variables.scss */
+      /* line 67, ../../src/scss/variables.scss */
       .mainchat-title_expand-button:hover {
         background: var(--c1); }
   /* line 46, ../../src/scss/mainchat-grid.scss */
@@ -344,7 +380,7 @@
         transition: all var(--quick);
         background: #111;
         border: 0.5px white solid; }
-        /* line 65, ../../src/scss/variables.scss */
+        /* line 67, ../../src/scss/variables.scss */
         .mainchat-grid_send-component--features_emojis:hover {
           background: var(--c1); }
       /* line 106, ../../src/scss/mainchat-grid.scss */
@@ -359,7 +395,7 @@
         transition: all var(--quick);
         background: #111;
         border: 0.5px white solid; }
-        /* line 65, ../../src/scss/variables.scss */
+        /* line 67, ../../src/scss/variables.scss */
         .mainchat-grid_send-component--features_gifs:hover {
           background: var(--c1); }
       /* line 115, ../../src/scss/mainchat-grid.scss */
@@ -374,7 +410,7 @@
         transition: all var(--quick);
         background: #111;
         border: 0.5px white solid; }
-        /* line 65, ../../src/scss/variables.scss */
+        /* line 67, ../../src/scss/variables.scss */
         .mainchat-grid_send-component--features_images:hover {
           background: var(--c1); }
       /* line 124, ../../src/scss/mainchat-grid.scss */
@@ -389,7 +425,7 @@
         transition: all var(--quick);
         background: #111;
         border: 0.5px white solid; }
-        /* line 65, ../../src/scss/variables.scss */
+        /* line 67, ../../src/scss/variables.scss */
         .mainchat-grid_send-component--features_darkmode:hover {
           background: var(--c1); }
 
@@ -439,7 +475,7 @@
       transition: all var(--quick);
       background: #111;
       border: 1px white solid; }
-      /* line 65, ../../src/scss/variables.scss */
+      /* line 67, ../../src/scss/variables.scss */
       .sidechat-title_expand-button:hover {
         background: var(--c1); }
     /* line 41, ../../src/scss/sidechat-grid.scss */
@@ -461,7 +497,7 @@
       transition: all var(--quick);
       background: #111;
       border: 1px white solid; }
-      /* line 65, ../../src/scss/variables.scss */
+      /* line 67, ../../src/scss/variables.scss */
       .sidechat-title_close-button:hover {
         background: var(--c1); }
   /* line 57, ../../src/scss/sidechat-grid.scss */
@@ -534,7 +570,7 @@
         transition: all var(--quick);
         background: #111;
         border: 0.5px white solid; }
-        /* line 65, ../../src/scss/variables.scss */
+        /* line 67, ../../src/scss/variables.scss */
         .sidechat1 .sidechat-grid_send-component--features_emojis:hover, .sidechat2 .sidechat-grid_send-component--features_emojis:hover {
           background: var(--c1); }
       /* line 120, ../../src/scss/sidechat-grid.scss */
@@ -550,7 +586,7 @@
         transition: all var(--quick);
         background: #111;
         border: 0.5px white solid; }
-        /* line 65, ../../src/scss/variables.scss */
+        /* line 67, ../../src/scss/variables.scss */
         .sidechat1 .sidechat-grid_send-component--features_gifs:hover, .sidechat2 .sidechat-grid_send-component--features_gifs:hover {
           background: var(--c1); }
       /* line 130, ../../src/scss/sidechat-grid.scss */
@@ -566,7 +602,7 @@
         transition: all var(--quick);
         background: #111;
         border: 0.5px white solid; }
-        /* line 65, ../../src/scss/variables.scss */
+        /* line 67, ../../src/scss/variables.scss */
         .sidechat1 .sidechat-grid_send-component--features_images:hover, .sidechat2 .sidechat-grid_send-component--features_images:hover {
           background: var(--c1); }
 
