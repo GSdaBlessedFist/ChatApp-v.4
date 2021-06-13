@@ -21,10 +21,6 @@ const chatArea = document.getElementById("chat-area"),
     mainchatMessageArea = document.getElementById("mainchat-messageArea");
 mainchatExpand.style.display = "none";
 mainchatMessageArea.innerHTML = "";
-
-
-var sidechat1Socket;
-
 mainchatSendButton.addEventListener("click", (e) => {
     e.preventDefault();
     p(mainchatInput.value)
@@ -51,6 +47,10 @@ socket.on('chat', (data) => {
     var links = Array.from(document.getElementsByClassName("messageObj--screenname"));
     //////////////////////////////////////////////////////
     //////////////////////////////////////////////////////
+
+
+
+
     //////////////////////////////////////////////////////
     links.forEach((link) => {
         link.addEventListener("click", function(e) {
@@ -59,11 +59,17 @@ socket.on('chat', (data) => {
             e.preventDefault();
             console.log("clicked screenname link")
             console.log(`receiver: ${receiver}`);
+
+
+
             socket.emit('message-invite', {
                 sender: screenname,
                 sendersocketinfo: socket.id,
                 receiver: link.innerText
             })
+
+
+
             // if sidechat1 is already open then add .sidechat1_sidechat2_open
             if (chatArea.classList.contains('defaultGrid')) {
                 chatArea.classList.replace('defaultGrid', 'main_sidechat1_open');
@@ -90,62 +96,37 @@ socket.on('chat', (data) => {
                     return;
                 }
             }
+
         })
+    })
+
+    socket.on('invite', (data) => {
+        var senderOfInvite = data.sender;
+        var receiverOfInvite = data.receiver;
+
+        console.log(`${senderOfInvite} would like to chat with you.`);
+        // gsap.to(inviteModalMessageBox,{opacity:1,duration:lazyFadeOutTime});
+        gsap.set(inviteModalScreen, {
+            display: "block"
+        })
+        gsap.set(inviteModalMessageBox, {
+            display: "block"
+        })
+        inviteModalMessageBoxTitle.innerText = `Would you like to chat with ${data.sender}?`
+        // gsap.to(inviteModalScreen,{opacity:1,duration:lazyFadeOutTime,delay:.45});
+
+        let yesButton = document.getElementById("yes");
+        let noButton = document.getElementById("no");
+        yesButton.addEventListener('click', (e) => {
+            a('yes')
+        });
+        noButton.addEventListener('click', (e) => {
+            a('no...deserving of a monkey pic...a chance for GIMPscapery')
+        });
     })
 })
-///////////////////////////////////////////////////////
-socket.on('invite', (data) => {
-    var senderOfInvite = data.sender;
-    var receiverOfInvite = data.receiver;
-    console.log(`${senderOfInvite} would like to chat with you.`);
-    // gsap.to(inviteModalMessageBox,{opacity:1,duration:lazyFadeOutTime});
-    gsap.set(inviteModalScreen, {
-        display: "block"
-    })
-    gsap.set(inviteModalMessageBox, {
-        display: "block"
-    })
-    inviteModalMessageBoxTitle.innerText = `Would you like to chat with ${data.sender}?`
-    // gsap.to(inviteModalScreen,{opacity:1,duration:lazyFadeOutTime,delay:.45});
-    let yesButton = document.getElementById("yes");
-    let noButton = document.getElementById("no");
-    yesButton.addEventListener('click', (e) => {
-        // a('yes')
-        e.preventDefault();
-        socket.emit('invite-acceptance',data)//<--
-        
-        gsap.to(inviteModalScreen, {
-            opacity: 0,
-            duration:lazyFadeOutTime
-        })
-        gsap.to(inviteModalMessageBox, {
-            opacity: 0,
-            duration:lazyFadeOutTime
-        })
-        gsap.set(inviteModalScreen,{display:"none"});
-        gsap.set(inviteModalMessageBox,{display:"none"})
-
-        // if(!sidechat1Socket){
-
-        // }
-
-    });
-    noButton.addEventListener('click', (e) => {
-        a('no...deserving of a monkey pic...a chance for GIMPscapery')
-    });
-})
+//////////////////////////////////////////////////////        
 //////////////////////////////////////////////////////
-socket.on('accept-join',(data)=>{
-    a(`${data.receiver} has accepted`);
-    socket.emit('join-sidechat1',data);
-})
-//////////////////////////////////////////////////////
-
-
-
-
-
-
 //////////////////////////////////////////////////////
 const sidechatExpand = document.getElementById("sidechat-expand");
 sidechatExpand.addEventListener('click', function() {

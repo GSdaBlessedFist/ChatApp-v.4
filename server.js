@@ -23,73 +23,91 @@ const partialsPath = path.join(__dirname, "./src/templates/partials");
 app.set("view engine", "hbs");
 app.set("views", viewsPath);
 hbs.registerPartials(partialsPath);
-app.get("/",(req,res)=>{
-    res.render("index",{
-            title: nameofApp,
-            clientname: "clientName"
-    })
+app.get("/", (req, res) => {
+  res.render("index", {
+    title: nameofApp,
+    clientname: "clientName"
+  })
 })
 const io = socket(server);
 var clientNum = 0;
 var currentUsers = [];
 //Whenever someone connects this gets executed
 io.on('connection', function(socket) {
-   
-   socket.on('add-client',(data)=>{
-        clientNum++;
-        console.log('currentUsers: '+clientNum);
-        currentUsers.push(data);
-        console.log(chalk.bgGreen.black.bold("Introducing..."+data.screenname))
-        console.log(currentUsers);
-        socket.emit('number-assignment',clientNum);
-    })
-    socket.on('message.chat',(data)=>{//<---
-        // console.log(data)
-        io.sockets.emit('chat',{
-            socketInfo :socket.id,
-            screenname: data.screenname,
-            message: data.message,
-            image: data.image
-        });
-    })
-    socket.on('message-invite',(data)=>{
-        //.sender,.senderid,.receiver
-        console.log(data);
-        console.log(`${data.sender} is INVITING ${data.receiver}`);
-        console.log("This is the SENDERs:"+ data.sendersocketinfo)
-        const targetUser = function(){
-            var theUser = currentUsers.find((user)=>{
-                return user.screenname === data.receiver;
-            })
-                return theUser;
-        }
-        console.log(`${data.sender}'s invite has been received by ${data.receiver}`);
-        io.to(targetUser().socketinfo).emit('invite',data);
-        // io.to(data.socketInfo).emit('invite',data);
-    })
-    socket.on('invite-acceptance',(data)=>{
-        console.log(currentUsers)
-        console.log(`${data.receiverOfInvite} has accepted a sidechat invite from ${data.senderOfInvite}` )
-        function matchUserToSocket(){
-            let targetUser = data.senderOfInvite;
-            let found = currentUsers.find((user)=>{
-                return user.screenname === targetUser;
-            })
-            return found;
-        }
-        io.to(matchUserToSocket().socketinfo).emit('accept-join',{
-            receiverOfInvite: data.receiverOfInvite,
-            senderOfInvite: data.senderOfInvite
-        })
-    })
-   socket.on('disconnect', () => {
-    clientNum--;
-    if(clientNum===0){
-        currentUsers=[];
-        console.log("empty room");
-    }else{
-        console.log('currentUsers: '+clientNum);
+  socket.on('add-client', (data) => {
+    clientNum++;
+    console.log('currentUsers: ' + clientNum);
+    currentUsers.push(data);
+    console.log(chalk.bgGreen.black.bold("Introducing..." + data.screenname))
+    console.log(currentUsers);
+    socket.emit('number-assignment', clientNum);
+  })
+  socket.on('message.chat', (data) => { //<---
+    // console.log(data)
+    io.sockets.emit('chat', {
+      socketInfo: socket.id,
+      screenname: data.screenname,
+      message: data.message,
+      image: data.image
+    });
+  })
+  socket.on('message-invite', (data) => {
+    //.sender,.senderid,.receiver
+    console.log(data);
+    console.log(`${data.sender} is INVITING ${data.receiver}`);
+    console.log("This is the SENDERs:" + data.sendersocketinfo)
+    const targetUser = function() {
+      var theUser = currentUsers.find((user) => {
+        return user.screenname === data.receiver;
+      })
+      return theUser;
     }
-   });
+    console.log(`${data.sender}'s invite has been received by ${data.receiver}`);
+    io.to(targetUser().socketinfo).emit('invite', data);
+    // io.to(data.socketInfo).emit('invite',data);
+  })
+  ////////////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////
+  socket.on('invite-acceptance', (data) => {
+    console.log(currentUsers)
+    console.log(`${data.receiver} has accepted a sidechat invite from ${data.sender}`)
+    const targetUser = function() {
+      var theUser = currentUsers.find((user) => {
+        return user.screenname === data.sender;
+      })
+      return theUser;
+    }
+    // console.log(targetUser());
+    // io.to(targetUser().socketinfo).emit('accept-join',{
+    //     receiver: data.receiver,
+    //     sender: data.sender
+    // })
+    io.to(targetUser().socketinfo).emit('accept-join', data)
+  })
+
+
+
+  socket.on('disconnect', () => {
+  clientNum--;
+  if (clientNum === 0) {
+    currentUsers = [];
+    console.log("empty room");
+  } else {
+    console.log('currentUsers: ' + clientNum);
+  }
 });
-//find an object that has a screename key that matches rec
+  
+})
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+
+
+//SIDECHAT//io
+// socket.on('join-sidechat1',(data)=>{})
+// socket.on('disconnect', () => {});
+
+
+// socket.on('disconnect', () => {});
+// })

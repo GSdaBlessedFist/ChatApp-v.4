@@ -132,13 +132,20 @@
       font-family: "Montserrat", sans-serif;
       transition: all var(--quick);
       padding: 5px;
-      background: #111;
-      border: 1px white solid; }
+      /*@include LINE(1px);*/
+      /*------------------added------------------*/
+      text-decoration: none;
+      font-family: "Montserrat", sans-serif;
+      transition: all var(--quick);
+      /*------------------added------------------*/ }
       /* line 67, ../../src/scss/variables.scss */
       #yes:hover {
         background: var(--c1); }
+      /* line 99, ../../src/scss/modals.scss */
+      #yes:hover {
+        background: var(--c1); }
 
-    /* line 96, ../../src/scss/modals.scss */
+    /* line 104, ../../src/scss/modals.scss */
     #no {
       display: flex;
       justify-content: center;

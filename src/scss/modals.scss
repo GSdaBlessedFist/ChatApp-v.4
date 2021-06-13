@@ -91,7 +91,15 @@
 				height: clamp(15px,50px,50px);
 				@include buttonize;
 				padding: 5px;
-				@include LINE(1px);
+				/*@include LINE(1px);*/
+				/*------------------added------------------*/
+				text-decoration: none;
+			    @include siteFont;
+			    transition: all var(--quick);
+			    &:hover{
+			        background: var(--c1);
+			    }
+			    /*------------------added------------------*/
 			}
 			#no{
 				@include flexCenter;
