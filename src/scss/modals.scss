@@ -33,8 +33,8 @@
 		grid-area: title;
 		@include flexCenter;
 		@include siteFont;
-		padding:  2px;
-		font-size:  clamp(3vh,3.5vh,3.75vh);
+		padding:  25px;
+		font-size:  clamp(2.5vh,3.5vh,3.75vh);
 		border-bottom:  2px rgba(255,255,255,.75) solid;
 	}
 	&--input{

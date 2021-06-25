@@ -56,15 +56,17 @@ io.on('connection', function(socket) {
     console.log(data);
     console.log(`${data.sender} is INVITING ${data.receiver}`);
     console.log("This is the SENDERs:" + data.sendersocketinfo)
-    const targetUser = function() {
+    function targetUser() {
       var theUser = currentUsers.find((user) => {
         return user.screenname === data.receiver;
       })
-      return theUser;
+      return theUser.socketinfo;
     }
     console.log(`${data.sender}'s invite has been received by ${data.receiver}`);
-    io.to(targetUser().socketinfo).emit('invite', data);
-    // io.to(data.socketInfo).emit('invite',data);
+    console.log(data.receiver);
+    console.log(targetUser());
+    io.to(targetUser()).emit('invite',data);
+    // socket.broadcast.to(targetUser).emit('accept-join', data);
   })
   ////////////////////////////////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////
@@ -72,21 +74,24 @@ io.on('connection', function(socket) {
   socket.on('invite-acceptance', (data) => {
     console.log(currentUsers)
     console.log(`${data.receiver} has accepted a sidechat invite from ${data.sender}`)
-    const targetUser = function() {
+    function targetUser() {
       var theUser = currentUsers.find((user) => {
         return user.screenname === data.sender;
       })
-      return theUser;
+      return theUser.socketinfo;
     }
     // console.log(targetUser());
     // io.to(targetUser().socketinfo).emit('accept-join',{
     //     receiver: data.receiver,
     //     sender: data.sender
     // })
-    io.to(targetUser().socketinfo).emit('accept-join', data)
+    // io.to(targetUser().socketinfo).emit('accept-join', data)
+    socket.broadcast.to(targetUser()).emit('accept-join', data);
   })
 
-
+  socket.on('sidechat1-message',(data)=>{
+    console.log(`Sidechat1 message: ${data.message}`)
+  })
 
   socket.on('disconnect', () => {
   clientNum--;
@@ -102,12 +107,3 @@ io.on('connection', function(socket) {
 ////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////
-
-
-//SIDECHAT//io
-// socket.on('join-sidechat1',(data)=>{})
-// socket.on('disconnect', () => {});
-
-
-// socket.on('disconnect', () => {});
-// })

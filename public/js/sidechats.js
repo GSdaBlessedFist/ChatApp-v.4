@@ -24,7 +24,7 @@ sideChat1SendButton.addEventListener('click',(e)=>{
 	e.preventDefault();
 	
 	let message = sidechat1Input.value;
-	console.log(sidechatMessages)
+	console.log(message)
 	sidechatMessages.innerHTML+=`
 		<div class="messageObj">
 			 <a href="#" class="messageObj--screenname"><div >PacMan22:</div></a>

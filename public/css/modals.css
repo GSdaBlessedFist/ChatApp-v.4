@@ -66,8 +66,8 @@
     justify-content: center;
     align-items: center;
     font-family: "Montserrat", sans-serif;
-    padding: 2px;
-    font-size: clamp(3vh, 3.5vh, 3.75vh);
+    padding: 25px;
+    font-size: clamp(2.5vh, 3.5vh, 3.75vh);
     border-bottom: 2px rgba(255, 255, 255, 0.75) solid; }
   /* line 40, ../../src/scss/modals.scss */
   .signin-modal-message-box--input {

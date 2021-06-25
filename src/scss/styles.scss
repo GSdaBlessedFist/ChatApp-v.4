@@ -21,6 +21,7 @@
    margin: 0px;
    box-sizing: border-box;
    color: white;
+   @include siteFont;
    /*background: #333;*/
 }
 html{height: 100%;}

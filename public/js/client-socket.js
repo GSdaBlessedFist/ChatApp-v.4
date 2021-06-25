@@ -64,8 +64,47 @@ socket.on('chat', (data) => {
                 sendersocketinfo: socket.id,
                 receiver: link.innerText
             })
-            // if sidechat1 is already open then add .sidechat1_sidechat2_open
-            if (chatArea.classList.contains('defaultGrid')) {
+            
+
+        })
+    })
+})
+///////////////////////////////////////////////////////
+socket.on('invite', (data) => {
+    var senderOfInvite = data.sender;
+    var receiverOfInvite = data.receiver;
+    console.log(`${senderOfInvite} would like to chat with you.`);
+    // gsap.to(inviteModalMessageBox,{opacity:1,duration:lazyFadeOutTime});
+    gsap.set(inviteModalScreen, {
+        display: "block"
+    })
+    gsap.set(inviteModalMessageBox, {
+        display: "block"
+    })
+    inviteModalMessageBoxTitle.innerText = `Would you like to chat with ${data.sender}?`
+    // gsap.to(inviteModalScreen,{opacity:1,duration:lazyFadeOutTime,delay:.45});
+    let yesButton = document.getElementById("yes");
+    let noButton = document.getElementById("no");
+
+    yesButton.addEventListener('click', (e) => {
+        // a('yes')
+        e.preventDefault();
+        socket.emit('invite-acceptance',data)//<--
+        
+        gsap.to(inviteModalScreen, {
+            opacity: 0,
+            duration:lazyFadeOutTime
+        })
+        gsap.to(inviteModalMessageBox, {
+            opacity: 0,
+            duration:lazyFadeOutTime
+        })
+        gsap.set(inviteModalScreen,{display:"none"});
+        gsap.set(inviteModalMessageBox,{display:"none"})
+        //////////////////
+            //////////////////
+            //////////////////
+        if (chatArea.classList.contains('defaultGrid')) {
                 chatArea.classList.replace('defaultGrid', 'main_sidechat1_open');
                 setTimeout(function() {
                     chatArea.classList.replace('main_sidechat1_open', 'twoChatsGrid');
@@ -90,44 +129,9 @@ socket.on('chat', (data) => {
                     return;
                 }
             }
-        })
-    })
-})
-///////////////////////////////////////////////////////
-socket.on('invite', (data) => {
-    var senderOfInvite = data.sender;
-    var receiverOfInvite = data.receiver;
-    console.log(`${senderOfInvite} would like to chat with you.`);
-    // gsap.to(inviteModalMessageBox,{opacity:1,duration:lazyFadeOutTime});
-    gsap.set(inviteModalScreen, {
-        display: "block"
-    })
-    gsap.set(inviteModalMessageBox, {
-        display: "block"
-    })
-    inviteModalMessageBoxTitle.innerText = `Would you like to chat with ${data.sender}?`
-    // gsap.to(inviteModalScreen,{opacity:1,duration:lazyFadeOutTime,delay:.45});
-    let yesButton = document.getElementById("yes");
-    let noButton = document.getElementById("no");
-    yesButton.addEventListener('click', (e) => {
-        // a('yes')
-        e.preventDefault();
-        socket.emit('invite-acceptance',data)//<--
-        
-        gsap.to(inviteModalScreen, {
-            opacity: 0,
-            duration:lazyFadeOutTime
-        })
-        gsap.to(inviteModalMessageBox, {
-            opacity: 0,
-            duration:lazyFadeOutTime
-        })
-        gsap.set(inviteModalScreen,{display:"none"});
-        gsap.set(inviteModalMessageBox,{display:"none"})
-
-        // if(!sidechat1Socket){
-
-        // }
+            //////////////////
+            //////////////////
+            //////////////////
 
     });
     noButton.addEventListener('click', (e) => {
@@ -138,6 +142,38 @@ socket.on('invite', (data) => {
 socket.on('accept-join',(data)=>{
     a(`${data.receiver} has accepted`);
     socket.emit('join-sidechat1',data);
+
+//////////////////
+            //////////////////
+            //////////////////
+        if (chatArea.classList.contains('defaultGrid')) {
+                chatArea.classList.replace('defaultGrid', 'main_sidechat1_open');
+                setTimeout(function() {
+                    chatArea.classList.replace('main_sidechat1_open', 'twoChatsGrid');
+                }, 1000)
+            } else if (chatArea.classList.contains('twoChatsGrid')) {
+                chatArea.classList.replace('twoChatsGrid', 'sidechat1_sidechat2_open');
+                setTimeout(function() {
+                    chatArea.classList.replace('sidechat1_sidechat2_open', 'threeChatsGrid');
+                }, 1000)
+            } else if (chatArea.classList.contains('twoChatsExpandedGrid')) {
+                chatArea.classList.replace('twoChatsExpandedGrid', 'sidechat1_sidechat2_openExpanded')
+                setTimeout(function() {
+                    chatArea.classList.replace('sidechat1_sidechat2_openExpanded', 'threeChatsExpandedGrid');
+                }, 1000)
+            } else if (chatArea.classList.contains('threeChatsGrid')) {
+                chatArea.classList.replace('threeChatsGrid', 'sidechat1_sidechat2_openExpanded');
+                setTimeout(function() {
+                    chatArea.classList.replace('sidechat1_sidechat2_openExpanded', 'threeChatsExpandedGrid');
+                }, 1000)
+            } else {
+                if (chatArea.classList.contains('threeChatsExpandedGrid')) {
+                    return;
+                }
+            }
+            //////////////////
+            //////////////////
+            //////////////////    
 })
 //////////////////////////////////////////////////////
 
@@ -149,16 +185,6 @@ socket.on('accept-join',(data)=>{
 //////////////////////////////////////////////////////
 const sidechatExpand = document.getElementById("sidechat-expand");
 sidechatExpand.addEventListener('click', function() {
-    // if (chatArea.classList.contains('threeChatsGrid')) {
-    //     chatArea.classList.replace('threeChatsGrid', 'sidechat1_sidechat2_openExpanded');
-    //     setTimeout(function() {
-    //         chatArea.classList.replace('sidechat1_sidechat2_openExpanded', 'threeChatsExpandedGrid');
-    //     }, 1000)
-    // }
-    // chatArea.classList.replace('twoChatsGrid', 'main_sidechat1_openExpanded');
-    // setTimeout(function() {
-    //     chatArea.classList.replace('main_sidechat1_openExpanded', 'twoChatsExpandedGrid');
-    // }, 1000)
     if (chatArea.classList.contains('threeChatsGrid')) {
         chatArea.classList.replace('threeChatsGrid', 'sidechat1_sidechat2_openExpanded');
         setTimeout(function() {
@@ -196,12 +222,3 @@ mainchatExpand.addEventListener('click', function() {
         }, 1000);
     }
 });
-// if (chatArea.classList.contains('main_sidechat1_openExpanded')) {
-//         chatArea.classList.replace('main_sidechat1_openExpanded', 'main_sidechat1_closeExpanded');
-//     } else {
-//         chatArea.classList.replace('main_sidechat1_closeExpanded', "main_sidechat1_close");
-//         setTimeout(function() {
-//             chatArea.classList.remove('main_sidechat1_close')
-//         }, quickFadeOutTime)
-//             // add else if
-//     }
