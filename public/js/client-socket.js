@@ -27,7 +27,7 @@ var sidechat1Socket;
 
 mainchatSendButton.addEventListener("click", (e) => {
     e.preventDefault();
-    p(mainchatInput.value)
+    // p(mainchatInput.value)
     if (mainchatInput.value.length > 3) {
         socket.emit('message.chat', {
             // screenname: noSpaces(mdlScreenNameInput.value) || mdlScreenNameInput.placeholder,
@@ -57,8 +57,8 @@ socket.on('chat', (data) => {
             mainchatExpand.style.display = "flex";
             let receiver = link.innerText;
             e.preventDefault();
-            console.log("clicked screenname link")
-            console.log(`receiver: ${receiver}`);
+            console.log(`%cInvited ${receiver} to chat`,"color:teal")
+            // console.log(`receiver: ${receiver}`);
             socket.emit('message-invite', {
                 sender: screenname,
                 sendersocketinfo: socket.id,
@@ -73,7 +73,7 @@ socket.on('chat', (data) => {
 socket.on('invite', (data) => {
     var senderOfInvite = data.sender;
     var receiverOfInvite = data.receiver;
-    console.log(`${senderOfInvite} would like to chat with you.`);
+    console.log(`%c${senderOfInvite} would like to chat with you.`,"color:teal;font-size:1.25em");
     // gsap.to(inviteModalMessageBox,{opacity:1,duration:lazyFadeOutTime});
     gsap.set(inviteModalScreen, {
         display: "block"
@@ -136,12 +136,26 @@ socket.on('invite', (data) => {
     });
     noButton.addEventListener('click', (e) => {
         a('no...deserving of a monkey pic...a chance for GIMPscapery')
+        socket.emit('decline-sidechat',data) 
+        gsap.to(inviteModalScreen, {
+            opacity: 0,
+            duration:lazyFadeOutTime
+        })
+        gsap.to(inviteModalMessageBox, {
+            opacity: 0,
+            duration:lazyFadeOutTime
+        })
+        gsap.set(inviteModalScreen,{display:"none"});
+        gsap.set(inviteModalMessageBox,{display:"none"})       
     });
+})
+socket.on('decline-notification',(data)=>{
+    p(`%c${data.receiver} has scoffed at your request to sidechat`,"color:white;font-size:1.25em;background:hsl(30,100%,50%)");
 })
 //////////////////////////////////////////////////////
 socket.on('accept-join',(data)=>{
-    a(`${data.receiver} has accepted`);
-    socket.emit('join-sidechat1',data);
+    p(`%c${data.receiver} has accepted`,"color:white;font-size:1.25em;background:hsl(100,100%,30%)");
+  
 
 //////////////////
             //////////////////

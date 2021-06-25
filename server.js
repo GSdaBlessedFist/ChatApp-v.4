@@ -54,17 +54,18 @@ io.on('connection', function(socket) {
   socket.on('message-invite', (data) => {
     //.sender,.senderid,.receiver
     console.log(data);
-    console.log(`${data.sender} is INVITING ${data.receiver}`);
-    console.log("This is the SENDERs:" + data.sendersocketinfo)
+    console.log(chalk.yellow.bold(data.sender)+` is INVITING `+chalk.green.bold(data.receiver));
+    console.log(chalk.yellow(`SENDER socketId: ${data.sendersocketinfo}`));
     function targetUser() {
       var theUser = currentUsers.find((user) => {
         return user.screenname === data.receiver;
       })
       return theUser.socketinfo;
     }
-    console.log(`${data.sender}'s invite has been received by ${data.receiver}`);
-    console.log(data.receiver);
-    console.log(targetUser());
+    console.log(chalk.yellow.bold(data.sender)+`'s invite has been received by `+chalk.green.bold(data.receiver));
+    console.log(chalk.green(`RECEIVER socketId: ${targetUser()}`));
+    // console.log(data.receiver);
+    // console.log(targetUser());
     io.to(targetUser()).emit('invite',data);
     // socket.broadcast.to(targetUser).emit('accept-join', data);
   })
@@ -73,24 +74,48 @@ io.on('connection', function(socket) {
   ////////////////////////////////////////////////////////////////////
   socket.on('invite-acceptance', (data) => {
     console.log(currentUsers)
-    console.log(`${data.receiver} has accepted a sidechat invite from ${data.sender}`)
+    console.log(chalk.green.bold(data.receiver)+ ` has accepted a sidechat invite from `+ chalk.yellow.bold(data.sender));
     function targetUser() {
       var theUser = currentUsers.find((user) => {
         return user.screenname === data.sender;
       })
       return theUser.socketinfo;
     }
-    // console.log(targetUser());
-    // io.to(targetUser().socketinfo).emit('accept-join',{
-    //     receiver: data.receiver,
-    //     sender: data.sender
-    // })
-    // io.to(targetUser().socketinfo).emit('accept-join', data)
+    
     socket.broadcast.to(targetUser()).emit('accept-join', data);
   })
 
+  socket.on("decline-sidechat",(data)=>{
+    console.log(chalk.red.bold(`Oooh..${data.receiver} has declined a sidechat with ${data.sender}`));
+    socket.emit('decline-notification',data);
+  })
+
   socket.on('sidechat1-message',(data)=>{
-    console.log(`Sidechat1 message: ${data.message}`)
+    console.log(`Sidechat1 message: ${data.message}`);
+    // io.sockets.emit('sidechat-chat', {
+    //   socketInfo: socket.id,
+    //   screenname: data.screenname,
+    //   message: data.message,
+    //   image: data.image
+    // });
+    ////////////////////
+    // function targetUser() {
+    //   var theUser = currentUsers.find((user) => {
+    //     return user.screenname === data.sender;
+    //   })
+    //   console.log(theUser.socketinfo)
+    //   return theUser.socketinfo;
+    // }
+    console.log("printer")
+    // targetUser();
+    /////////////////////////////
+    // io.to(targetUser()).emit('sidechat-chat', {
+    //   socketInfo: socket.id,
+    //   screenname: data.screenname,
+    //   message: data.message,
+    //   image: data.image
+    // });
+
   })
 
   socket.on('disconnect', () => {

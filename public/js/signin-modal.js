@@ -2,7 +2,6 @@
 
 const a = alert;
 const p = console.log;
-p("start")
 const url = "http://localhost:3400";
 // const socket = io.connect(url);
 const socket = io();
@@ -60,7 +59,7 @@ document.body.addEventListener("keyup", (e) => {
             screenname,
             socketinfo: socket.id
         })
-        p("up to this point")
+        p("%cUsername registered","color:green;font-size:1.25em");
         gsap.to(signinModalMessageBox,{opacity:0,duration:lazyFadeOutTime});
         gsap.to(siginModalScreen,{opacity:0,duration:lazyFadeOutTime,delay:.45});
 

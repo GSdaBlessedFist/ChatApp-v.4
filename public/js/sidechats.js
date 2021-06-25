@@ -1,13 +1,12 @@
 //sidechats.js;
 import {
-    socket
+    socket,screenname
     // url,
     // styles,
     // inviteModalScreen,
     // inviteModalMessageBox,
     // inviteModalMessageBoxTitle,
     // noSpaces,
-    // screenname,
     // lazyFadeOutTime,
     // quickFadeOutTime
 } from "./signin-modal.js";
@@ -24,14 +23,26 @@ sideChat1SendButton.addEventListener('click',(e)=>{
 	e.preventDefault();
 	
 	let message = sidechat1Input.value;
-	console.log(message)
+	console.log(message);
+	socket.emit('sidechat1-message',{
+		screenname,
+        message: sidechat1Input.value,
+        image: null
+	});
+	
+socket.on('sidechat-chat',(data)=>{//<--
+	console.log(data.message)
 	sidechatMessages.innerHTML+=`
-		<div class="messageObj">
-			 <a href="#" class="messageObj--screenname"><div >PacMan22:</div></a>
-			 <div class="messageObj--message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam ullam, eaque, impedit, repellat veritatis tempora sint cum incidunt earum iste nulla placeat corrupti modi harum perferendis quisquam inventore fugit molestias?</div>
-			 <div class="messageObj--image x">${message}</div>
-		</div>
+		<div class="messageObj ${socket.id==data.socketInfo?"":"others-message"}">
+             <a href="#" class="messageObj--screenname"><div >${data.screenname}</div></a>
+             <div class="messageObj--message">${data.message}</div>
+             <div class="messageObj--image x">${data.image}</div>
+        </div>
 	`
+})
+
+
+
 	// socket.on('scInfo',(data)=>{
 	// 	var sidechat1Socket = io(`/${data.receiver}`);
 	// 	console.log(sidechat1Socket)
