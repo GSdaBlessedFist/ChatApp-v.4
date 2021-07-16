@@ -24,14 +24,15 @@ sideChat1SendButton.addEventListener('click',(e)=>{
 	
 	let message = sidechat1Input.value;
 	console.log(message);
-	socket.emit('sidechat1-message',{
+	socket.emit('sidechat-message',{//<-- 1
 		screenname,
         message: sidechat1Input.value,
         image: null
 	});
 	
 socket.on('sidechat-chat',(data)=>{//<--
-	console.log(data.message)
+	//screenname,message,roomTag,image
+	console.log("data.roomTag")
 	sidechatMessages.innerHTML+=`
 		<div class="messageObj ${socket.id==data.socketInfo?"":"others-message"}">
              <a href="#" class="messageObj--screenname"><div >${data.screenname}</div></a>
@@ -41,6 +42,9 @@ socket.on('sidechat-chat',(data)=>{//<--
 	`
 })
 
+socket.on('partner-info',(data)=>{
+	alert(data.partner)
+})
 
 
 	// socket.on('scInfo',(data)=>{

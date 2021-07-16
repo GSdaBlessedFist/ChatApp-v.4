@@ -20,33 +20,39 @@
 
 /* line 19, ../../src/scss/variables.scss */
 .x {
-  display: none; }
+  display: none;
+  opacity: 0; }
 
 /* @include LINE(5px)*/
 /*MIXIN's*/
 /* line 3, ../../src/scss/message.scss */
 .messageObj {
-  display: block;
+  /*display: block;*/
+  display: inline-block;
   width: 55%;
   text-align: left;
   border: 1px white solid; }
-  /* line 8, ../../src/scss/message.scss */
+  /* line 9, ../../src/scss/message.scss */
   .messageObj--screenname {
+    padding-left: 5px;
+    padding-right: 5px;
     display: block;
+    font-size: 1.25rem;
     text-decoration: none; }
-  /* line 12, ../../src/scss/message.scss */
+  /* line 16, ../../src/scss/message.scss */
   .messageObj--message {
     padding: 5px;
     padding-left: 25px; }
-  /* line 16, ../../src/scss/message.scss */
+  /* line 20, ../../src/scss/message.scss */
   .messageObj--image {
     border-top: 2px white solid;
     height: 500px;
-    background: #111;
+    background: #122;
     border: 1px white solid; }
 
-/* line 22, ../../src/scss/message.scss */
+/* line 26, ../../src/scss/message.scss */
 .others-message {
+  /*display:inline-block;*/
   text-align: right;
   position: relative;
   right: -45%; }

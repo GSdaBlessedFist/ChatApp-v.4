@@ -23,7 +23,8 @@
 
 /* line 19, ../../src/scss/variables.scss */
 .x {
-  display: none; }
+  display: none;
+  opacity: 0; }
 
 /* @include LINE(5px)*/
 /*MIXIN's*/
@@ -57,7 +58,7 @@
     font-family: "Roboto Slab", serif;
     font-size: clamp(1.5rem, 1.75rem, 2rem);
     color: white;
-    background: #111;
+    background: #122;
     border: 2px white solid; }
     /* line 33, ../../src/scss/sidechat-grid.scss */
     .sidechat-title_expand-button {
@@ -71,9 +72,9 @@
       text-decoration: none;
       font-family: "Montserrat", sans-serif;
       transition: all var(--quick);
-      background: #111;
+      background: #122;
       border: 1px white solid; }
-      /* line 67, ../../src/scss/variables.scss */
+      /* line 68, ../../src/scss/variables.scss */
       .sidechat-title_expand-button:hover {
         background: var(--c1); }
     /* line 41, ../../src/scss/sidechat-grid.scss */
@@ -82,7 +83,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: #111;
+      background: #122;
       border: 1px white solid; }
     /* line 46, ../../src/scss/sidechat-grid.scss */
     .sidechat-title_close-button {
@@ -93,9 +94,9 @@
       text-decoration: none;
       font-family: "Montserrat", sans-serif;
       transition: all var(--quick);
-      background: #111;
+      background: #122;
       border: 1px white solid; }
-      /* line 67, ../../src/scss/variables.scss */
+      /* line 68, ../../src/scss/variables.scss */
       .sidechat-title_close-button:hover {
         background: var(--c1); }
   /* line 57, ../../src/scss/sidechat-grid.scss */
@@ -103,7 +104,7 @@
     grid-area: messageArea;
     overflow-y: auto;
     width: 100%;
-    background: #111;
+    background: #122;
     border: 2px white solid; }
   /* line 63, ../../src/scss/sidechat-grid.scss */
   .sidechat1 .sidechat-grid_send-component, .sidechat2 .sidechat-grid_send-component {
@@ -116,7 +117,7 @@
     bottom: 0px;
     width: 100%;
     /*height: 50px;*/
-    background: #111;
+    background: #122;
     border: 2px white solid;
     /*ADD THESE TO SIDECHAT TOO*/ }
     /* line 76, ../../src/scss/sidechat-grid.scss */
@@ -166,9 +167,9 @@
         text-decoration: none;
         font-family: "Montserrat", sans-serif;
         transition: all var(--quick);
-        background: #111;
+        background: #122;
         border: 0.5px white solid; }
-        /* line 67, ../../src/scss/variables.scss */
+        /* line 68, ../../src/scss/variables.scss */
         .sidechat1 .sidechat-grid_send-component--features_emojis:hover, .sidechat2 .sidechat-grid_send-component--features_emojis:hover {
           background: var(--c1); }
       /* line 120, ../../src/scss/sidechat-grid.scss */
@@ -182,9 +183,9 @@
         text-decoration: none;
         font-family: "Montserrat", sans-serif;
         transition: all var(--quick);
-        background: #111;
+        background: #122;
         border: 0.5px white solid; }
-        /* line 67, ../../src/scss/variables.scss */
+        /* line 68, ../../src/scss/variables.scss */
         .sidechat1 .sidechat-grid_send-component--features_gifs:hover, .sidechat2 .sidechat-grid_send-component--features_gifs:hover {
           background: var(--c1); }
       /* line 130, ../../src/scss/sidechat-grid.scss */
@@ -198,8 +199,8 @@
         text-decoration: none;
         font-family: "Montserrat", sans-serif;
         transition: all var(--quick);
-        background: #111;
+        background: #122;
         border: 0.5px white solid; }
-        /* line 67, ../../src/scss/variables.scss */
+        /* line 68, ../../src/scss/variables.scss */
         .sidechat1 .sidechat-grid_send-component--features_images:hover, .sidechat2 .sidechat-grid_send-component--features_images:hover {
           background: var(--c1); }

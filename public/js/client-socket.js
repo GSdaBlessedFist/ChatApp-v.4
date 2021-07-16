@@ -13,6 +13,7 @@ import {
 
 const p = console.log;
 const a = alert;
+// localStorage.clear();
 
 const chatArea = document.getElementById("chat-area"),
     mainchatExpand = document.getElementById("mainchat-expand"),
@@ -22,28 +23,78 @@ const chatArea = document.getElementById("chat-area"),
 mainchatExpand.style.display = "none";
 mainchatMessageArea.innerHTML = "";
 
-
 var sidechat1Socket;
 
-mainchatSendButton.addEventListener("click", (e) => {
-    e.preventDefault();
-    // p(mainchatInput.value)
-    if (mainchatInput.value.length > 3) {
-        socket.emit('message.chat', {
-            // screenname: noSpaces(mdlScreenNameInput.value) || mdlScreenNameInput.placeholder,
-            // message: scMessageInput.value,
-            // action: "a message was sent"
-            screenname,
-            message: mainchatInput.value,
-            image: null
-        })
-    }
-    mainchatInput.value = "";
+////////////////////EVENT HANDLERS/////////////////////////
+if(document.addEventListener){
+    p('please')
+}
+document.addEventListener('click',(e)=>{
+    var target = e.target;
+
+    if(target.matches("#mainchat-sendButton")){
+        e.preventDefault();
+        if (mainchatInput.value.length > 3) {
+            socket.emit('message.chat', {
+                // screenname: noSpaces(mdlScreenNameInput.value) || mdlScreenNameInput.placeholder,
+                // message: scMessageInput.value,
+                // action: "a message was sent"
+                screenname,
+                message: mainchatInput.value,
+                image: null
+            })
+        }
+        mainchatInput.value = "";
+    }//#mainchat-sendButton
+
+    // if(target.matches(".sidechat-expand")){
+    //     if (chatArea.classList.contains('threeChatsGrid')) {
+    //     chatArea.classList.replace('threeChatsGrid', 'sidechat1_sidechat2_openExpanded');
+    //     setTimeout(function() {
+    //         chatArea.classList.replace('sidechat1_sidechat2_openExpanded', 'threeChatsExpandedGrid');
+    //     }, 1000)
+    //     } else if (chatArea.classList.contains('twoChatsGrid')) {
+    //         chatArea.classList.replace('twoChatsGrid', 'main_sidechat1_openExpanded');
+    //         setTimeout(function() {
+    //             chatArea.classList.replace('main_sidechat1_openExpanded', 'twoChatsExpandedGrid');
+    //         }, 1000)
+    //     } else {
+    //         return
+    //     }
+    // }//.sidechat-expand
+
+    // if(target.matches(".mainchat-expand")){
+    //     if (chatArea.classList.contains('twoChatsExpandedGrid')) {
+    //     chatArea.classList.replace('twoChatsExpandedGrid', 'main_sidechat1_closeExpanded');
+    //     setTimeout(function() {
+    //         chatArea.classList.replace('main_sidechat1_closeExpanded', 'twoChatsGrid')
+    //     }, 1000);
+    //     } else if (chatArea.classList.contains('threeChatsExpandedGrid')) {
+    //         chatArea.classList.replace('threeChatsExpandedGrid', 'sidechat1_sidechat2_closeExpanded');
+    //         setTimeout(function() {
+    //             chatArea.classList.replace('sidechat1_sidechat2_closeExpanded', 'threeChatsGrid');
+    //         }, 1000);
+    //     } else if (chatArea.classList.contains('twoChatsGrid')) {
+    //         chatArea.classList.replace('twoChatsGrid', 'main_sidechat1_close');
+    //         setTimeout(function() {
+    //             chatArea.classList.replace('main_sidechat1_close', 'defaultGrid');
+    //         }, 1000);
+    //     } else {
+    //         chatArea.classList.replace('threeChatsGrid', 'sidechat1_sidechat2_close');
+    //         setTimeout(function() {
+    //             chatArea.classList.replace('sidechat1_sidechat2_close', 'defaultGrid');
+    //         }, 1000);
+    //     }
+    // }//.mainchat-expand
+
+    
 })
+
+
 socket.on('chat', (data) => {
     mainchatMessageArea.innerHTML += `
         <div class="messageObj ${socket.id==data.socketInfo?"":"others-message"}">
-             <a href="#" class="messageObj--screenname"><div >${data.screenname}</div></a>
+             <a href="#" class="messageObj--screenname"><div>${data.screenname}</div></a>
              <div class="messageObj--message">${data.message}</div>
              <div class="messageObj--image x">${data.image}</div>
         </div>
@@ -73,6 +124,7 @@ socket.on('chat', (data) => {
 socket.on('invite', (data) => {
     var senderOfInvite = data.sender;
     var receiverOfInvite = data.receiver;
+    var receiverId = data.receiverId;
     console.log(`%c${senderOfInvite} would like to chat with you.`,"color:teal;font-size:1.25em");
     // gsap.to(inviteModalMessageBox,{opacity:1,duration:lazyFadeOutTime});
     gsap.set(inviteModalScreen, {
@@ -81,13 +133,14 @@ socket.on('invite', (data) => {
     gsap.set(inviteModalMessageBox, {
         display: "block"
     })
-    inviteModalMessageBoxTitle.innerText = `Would you like to chat with ${data.sender}?`
+    inviteModalMessageBoxTitle.innerText += `Would you like to chat with ${data.sender}?`
     // gsap.to(inviteModalScreen,{opacity:1,duration:lazyFadeOutTime,delay:.45});
     let yesButton = document.getElementById("yes");
     let noButton = document.getElementById("no");
 
+//--YES-//
     yesButton.addEventListener('click', (e) => {
-        // a('yes')
+        
         e.preventDefault();
         socket.emit('invite-acceptance',data)//<--
         
@@ -132,8 +185,15 @@ socket.on('invite', (data) => {
             //////////////////
             //////////////////
             //////////////////
+        socket.emit('join-sidechat',{
+            sender: senderOfInvite,
+            receiver: receiverOfInvite,
+            receiverId
+        });
 
     });
+
+//--NO-//
     noButton.addEventListener('click', (e) => {
         a('no...deserving of a monkey pic...a chance for GIMPscapery')
         socket.emit('decline-sidechat',data) 
@@ -149,6 +209,7 @@ socket.on('invite', (data) => {
         gsap.set(inviteModalMessageBox,{display:"none"})       
     });
 })
+
 socket.on('decline-notification',(data)=>{
     p(`%c${data.receiver} has scoffed at your request to sidechat`,"color:white;font-size:1.25em;background:hsl(30,100%,50%)");
 })

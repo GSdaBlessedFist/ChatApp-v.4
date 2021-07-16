@@ -1,5 +1,5 @@
 //signin.js;
-
+sessionStorage.clear(); 
 const a = alert;
 const p = console.log;
 const url = "http://localhost:3400";
@@ -55,9 +55,12 @@ signinModalMessageBoxInput.addEventListener('change',(e)=>{
 document.body.addEventListener("keyup", (e) => {
 	
 	if (e.keyCode === 13 && signinModal.style.opacity!==0) {
+    // if (e.keyCode === 13 && signinModal.style.display=="block") {
+        p("TEST")
         socket.emit("add-client", {
             screenname,
             socketinfo: socket.id
+
         })
         p("%cUsername registered","color:green;font-size:1.25em");
         gsap.to(signinModalMessageBox,{opacity:0,duration:lazyFadeOutTime});
@@ -66,13 +69,23 @@ document.body.addEventListener("keyup", (e) => {
         /////////// CLOSES SIGNIN MODAL ///////////
         setTimeout(()=>{
             signinModal.classList.add("x");
+            signinModal.remove();
         },lazyFadeOutTime)
-    }  
+    }
     // document.title += " - "+screenname; <--THIS ONE FINAL
     document.title = screenname +" : "+socket.id; //<--testING
     document.getElementById("mainchat-input").autofocus=true;
     
 })
+        
+
+        
+    // document.title += " - "+screenname; <--THIS ONE FINAL
+    document.title = screenname +" : "+socket.id; //<--testING
+    document.getElementById("mainchat-input").autofocus=true;
+    
+
+
 
 
 export {

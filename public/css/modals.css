@@ -23,16 +23,19 @@
 
 /* line 19, ../../src/scss/variables.scss */
 .x {
-  display: none; }
+  display: none;
+  opacity: 0; }
 
 /* @include LINE(5px)*/
 /*MIXIN's*/
 /* line 4, ../../src/scss/modals.scss */
 .signin-modal {
+  display: block;
+  /*<--*/
   opacity: 1; }
 
-/* line 16, ../../src/scss/modals.scss */
-.modal-screen, #invite-modal-screen {
+/* line 17, ../../src/scss/modals.scss */
+.modal-screen {
   display: block;
   position: absolute;
   top: var(--navbarHeight);
@@ -40,10 +43,11 @@
   width: 100%;
   height: 82.5vh;
   opacity: .75;
-  background: #111;
+  background: #122;
   border: 2px white solid; }
 
-/* line 20, ../../src/scss/modals.scss */
+/*,#invite-modal-screen*/
+/* line 23, ../../src/scss/modals.scss */
 .signin-modal-message-box {
   position: absolute;
   display: grid;
@@ -57,9 +61,11 @@
   left: 30%;
   text-align: center;
   border-radius: var(--borderRadius);
-  background: #111;
-  border: 2px white solid; }
-  /* line 32, ../../src/scss/modals.scss */
+  background: #122;
+  border: 2px white solid;
+  opacity: 1;
+  /*display: none;*/ }
+  /* line 38, ../../src/scss/modals.scss */
   .signin-modal-message-box--title {
     grid-area: title;
     display: flex;
@@ -69,7 +75,7 @@
     padding: 25px;
     font-size: clamp(2.5vh, 3.5vh, 3.75vh);
     border-bottom: 2px rgba(255, 255, 255, 0.75) solid; }
-  /* line 40, ../../src/scss/modals.scss */
+  /* line 46, ../../src/scss/modals.scss */
   .signin-modal-message-box--input {
     grid-area: input;
     position: relative;
@@ -81,14 +87,14 @@
     text-align: center;
     color: var(--c2);
     font-family: "Merienda", cursive; }
-  /* line 52, ../../src/scss/modals.scss */
+  /* line 58, ../../src/scss/modals.scss */
   .signin-modal-message-box--space {
     grid-area: space;
     border-top: 2px rgba(255, 255, 255, 0.75) solid;
     padding: 5px;
     font-family: "Montserrat", sans-serif; }
 
-/* line 60, ../../src/scss/modals.scss */
+/* line 66, ../../src/scss/modals.scss */
 .invite-modal-message-box {
   position: absolute;
   display: grid;
@@ -102,9 +108,9 @@
   left: 30%;
   text-align: center;
   border-radius: var(--borderRadius);
-  background: #111;
+  background: #122;
   border: 2px white solid; }
-  /* line 73, ../../src/scss/modals.scss */
+  /* line 79, ../../src/scss/modals.scss */
   .invite-modal-message-box_title {
     grid-area: invite;
     display: flex;
@@ -114,14 +120,14 @@
     padding: 20px;
     font-size: clamp(3.25vh, 3.5vh, 3.75vh);
     border-bottom: 2px rgba(255, 255, 255, 0.75) solid; }
-  /* line 81, ../../src/scss/modals.scss */
+  /* line 87, ../../src/scss/modals.scss */
   .invite-modal-message-box_sidechat-button {
     width: 100%;
     height: 100px;
-    background: #111;
+    background: #122;
     border: 1px white solid;
     margin: auto; }
-    /* line 88, ../../src/scss/modals.scss */
+    /* line 94, ../../src/scss/modals.scss */
     #yes {
       display: flex;
       justify-content: center;
@@ -138,14 +144,14 @@
       font-family: "Montserrat", sans-serif;
       transition: all var(--quick);
       /*------------------added------------------*/ }
-      /* line 67, ../../src/scss/variables.scss */
+      /* line 68, ../../src/scss/variables.scss */
       #yes:hover {
         background: var(--c1); }
-      /* line 99, ../../src/scss/modals.scss */
+      /* line 105, ../../src/scss/modals.scss */
       #yes:hover {
         background: var(--c1); }
 
-    /* line 104, ../../src/scss/modals.scss */
+    /* line 110, ../../src/scss/modals.scss */
     #no {
       display: flex;
       justify-content: center;
@@ -156,8 +162,8 @@
       font-family: "Montserrat", sans-serif;
       transition: all var(--quick);
       padding: 5px;
-      background: #111;
+      background: #122;
       border: 1px white solid; }
-      /* line 67, ../../src/scss/variables.scss */
+      /* line 68, ../../src/scss/variables.scss */
       #no:hover {
         background: var(--c1); }

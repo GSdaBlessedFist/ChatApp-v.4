@@ -2,6 +2,7 @@
 @import "font";
 
 .signin-modal{
+	display: block;/*<--*/
 	opacity: 1;
 }
 @mixin modal{
@@ -13,10 +14,12 @@
 	height: 82.5vh;
 	opacity: .75;
 }
-.modal-screen,#invite-modal-screen{
+.modal-screen{
 	@include modal;
 	@include LINE(2px);
 }
+/*,#invite-modal-screen*/
+
 .signin-modal-message-box{
 	position: absolute;
 	@include grid(40%,200px,"1fr","30% 1fr 15%");
@@ -29,6 +32,9 @@
 	text-align: center;
 	border-radius:  var(--borderRadius);
 	@include LINE(2px);
+	opacity:1;
+	/*display: none;*/
+
 	&--title{
 		grid-area: title;
 		@include flexCenter;
